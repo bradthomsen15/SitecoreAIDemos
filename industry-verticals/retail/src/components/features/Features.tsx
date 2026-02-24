@@ -6,6 +6,7 @@ import {
   Image,
   Link,
   Text,
+  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import React from 'react';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
@@ -51,11 +52,20 @@ const FeatureWrapper = (wrapperProps: FeatureWrapperProps) => {
   );
 };
 
+/** Excludes features whose image alt text contains "Samsung" (e.g. Samsung logo). */
+function excludeSamsungLogo(features: Feature[]): Feature[] {
+  return (features ?? []).filter(
+    (item) =>
+      !item?.featureImage?.jsonValue?.value?.alt?.toLowerCase().includes('samsung')
+  );
+}
+
 export const Default = (props: FeaturesProps) => {
-  // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
   const hideAccentLine = props.params.styles?.includes(CommonStyles.HideAccentLine);
-  const featureSectionTitle = props.fields.data.datasource.title;
+  const featureSectionTitle = props.fields?.data?.datasource?.title;
 
   return (
     <FeatureWrapper props={props}>
@@ -93,32 +103,71 @@ export const Default = (props: FeaturesProps) => {
 };
 
 export const ImageGrid = (props: FeaturesProps) => {
-  // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const { page } = useSitecore();
+  const isEditing = page?.mode?.isEditing ?? false;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
+  const sectionTitle = props.fields?.data?.datasource?.title;
 
   return (
     <FeatureWrapper props={props}>
-      <div className="container grid grid-cols-1 gap-4 py-9 md:grid-cols-2 lg:grid-cols-5">
+      <div className="container flex flex-col gap-6 py-9">
+        {(sectionTitle?.jsonValue?.value || isEditing) && (
+          <h2 className="text-center text-2xl font-bold md:text-3xl">
+            <Text field={sectionTitle?.jsonValue} />
+          </h2>
+        )}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {results.map((item, index) => {
-          const imageField = item?.featureImage.jsonValue;
+          const imageField = item?.featureImage?.jsonValue;
+          const descriptionField = item?.featureDescription?.jsonValue;
           return (
-            <div className="flex items-center justify-center py-9 lg:py-2" key={index}>
-              {imageField && <Image field={imageField} className="max-h-20 object-contain" />}
+            <div
+              className="flex flex-col items-center justify-center text-center"
+              key={index}
+              suppressHydrationWarning
+            >
+              <div className="py-4">
+                {imageField && (
+                  <Image
+                    field={imageField}
+                    className="max-h-[7.5rem] object-contain"
+                  />
+                )}
+              </div>
+              {(descriptionField?.value || isEditing) && descriptionField && (
+                <p className="mt-2 text-foreground-muted text-base font-bold leading-6">
+                  {descriptionField.value ?? ''}
+                </p>
+              )}
             </div>
           );
         })}
+        </div>
       </div>
     </FeatureWrapper>
   );
 };
 
 export const ThreeColGridCentered = (props: FeaturesProps) => {
-  // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const { page } = useSitecore();
+  const isEditing = page?.mode?.isEditing ?? false;
+  const sectionTitle = props.fields?.data?.datasource?.title;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
 
   return (
     <FeatureWrapper props={props}>
       <div className="container flex flex-col flex-wrap justify-evenly gap-20 md:flex-row lg:gap-20">
+        {(sectionTitle?.jsonValue?.value || isEditing) && (
+          <div className="mb-4 w-full text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">
+              <Text field={sectionTitle?.jsonValue} />
+            </h2>
+          </div>
+        )}
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
           const description = item.featureDescription.jsonValue;
@@ -147,12 +196,22 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
 };
 
 export const NumberedGrid = (props: FeaturesProps) => {
-  // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const { page } = useSitecore();
+  const isEditing = page?.mode?.isEditing ?? false;
+  const sectionTitle = props.fields?.data?.datasource?.title;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
 
   return (
     <FeatureWrapper props={props}>
-      <div className="container grid grid-cols-1 gap-4 py-24 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container flex flex-col gap-4 py-24">
+        {(sectionTitle?.jsonValue?.value || isEditing) && (
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">
+            <Text field={sectionTitle?.jsonValue} />
+          </h2>
+        )}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {results.map((item, index) => {
           const title = item?.featureTitle.jsonValue;
           const description = item?.featureDescription.jsonValue;
@@ -177,18 +236,29 @@ export const NumberedGrid = (props: FeaturesProps) => {
             </div>
           );
         })}
+        </div>
       </div>
     </FeatureWrapper>
   );
 };
 
 export const FourColGrid = (props: FeaturesProps) => {
-  // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const { page } = useSitecore();
+  const isEditing = page?.mode?.isEditing ?? false;
+  const sectionTitle = props.fields?.data?.datasource?.title;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
 
   return (
     <FeatureWrapper props={props}>
-      <div className="container grid grid-cols-1 gap-20 py-24 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+      <div className="container flex flex-col gap-20 py-24 lg:gap-10">
+        {(sectionTitle?.jsonValue?.value || isEditing) && (
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">
+            <Text field={sectionTitle?.jsonValue} />
+          </h2>
+        )}
+        <div className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
           const description = item.featureDescription.jsonValue;
@@ -211,17 +281,29 @@ export const FourColGrid = (props: FeaturesProps) => {
             </div>
           );
         })}
+        </div>
       </div>
     </FeatureWrapper>
   );
 };
 
 export const ImageCardGrid = (props: FeaturesProps) => {
-  const results = props.fields.data.datasource.children.results;
+  const { page } = useSitecore();
+  const isEditing = page?.mode?.isEditing ?? false;
+  const sectionTitle = props.fields?.data?.datasource?.title;
+  const results = excludeSamsungLogo(
+    props.fields?.data?.datasource?.children?.results ?? []
+  );
 
   return (
     <FeatureWrapper props={props}>
-      <div className="outline-non container grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="outline-non container flex flex-col gap-12">
+        {(sectionTitle?.jsonValue?.value || isEditing) && (
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">
+            <Text field={sectionTitle?.jsonValue} />
+          </h2>
+        )}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {results.map((item, index) => {
           const title = item.featureTitle.jsonValue;
           const description = item.featureDescription.jsonValue;
@@ -242,6 +324,7 @@ export const ImageCardGrid = (props: FeaturesProps) => {
             </div>
           );
         })}
+        </div>
       </div>
     </FeatureWrapper>
   );

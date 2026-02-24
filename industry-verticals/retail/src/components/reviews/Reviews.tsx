@@ -2,7 +2,6 @@ import { ComponentProps } from '@/lib/component-props';
 import {
   ComponentParams,
   ComponentRendering,
-  Text,
   TextField,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
@@ -38,16 +37,16 @@ export const Default = (props: ReviewsProps) => {
   const hideAccentLine = styles?.includes(CommonStyles.HideAccentLine);
 
   return (
-    <div className={`${styles}`} id={id}>
+    <div className={`${styles}`} id={id} suppressHydrationWarning>
       <div className="container py-20">
         {/* Heading Section */}
         <div className="text-center">
           <p className="eyebrow pb-4">
-            <Text field={sectionEyebrow} />
+            {sectionEyebrow?.value ?? ''}
           </p>
           <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="inline-block font-bold max-lg:text-5xl" aria-label="section-title">
-              <Text field={sectionTitle} />
+              {sectionTitle?.value ?? ''}
             </h2>
             <h2 className="inline-block font-bold max-lg:text-5xl" aria-label="accent-line">
               {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}

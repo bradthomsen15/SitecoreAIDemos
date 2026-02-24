@@ -7,7 +7,6 @@ import {
   Link,
   LinkField,
   RichTextField,
-  Text,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import clsx from 'clsx';
@@ -43,13 +42,13 @@ export const PromoContent = ({ ...props }) => {
   const isAccentLineVisible = !props?.params?.styles?.includes(CommonStyles.HideAccentLine);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5" suppressHydrationWarning>
       <div className="eyebrow">
-        <Text field={props.fields.PromoSubTitle} />
+        {props.fields.PromoSubTitle?.value ?? ''}
       </div>
 
       <h2 className="inline-block max-w-md">
-        <Text field={props.fields.PromoTitle} />
+        {props.fields.PromoTitle?.value ?? ''}
         {isAccentLineVisible && <AccentLine className="w-full max-w-xs" />}
       </h2>
 
@@ -152,7 +151,11 @@ export const Default = (props: PromoProps): JSX.Element => {
   const secondColumnSize = showSingleImage ? 'lg:col-span-6' : 'lg:col-span-5';
 
   return (
-    <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
+    <section
+      className={`${props.params.styles} py-20`}
+      id={id ? id : undefined}
+      suppressHydrationWarning
+    >
       <div className="container grid grid-cols-1 place-items-center gap-10 lg:grid-cols-12">
         <div className={`${isPromoReversed} col-span-full ${firstColumnSize} relative w-full`}>
           {showSingleImage ? (
@@ -196,15 +199,15 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
           />
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-5" suppressHydrationWarning>
           <div className="text-foreground-light font-semibold uppercase">
-            <Text field={props.fields.PromoSubTitle} />
+            {props.fields.PromoSubTitle?.value ?? ''}
           </div>
 
           <div className="grid-col-1 grid gap-5 md:grid-cols-2">
             <div className="font-bold">
               <h2 className="max-w-md">
-                <Text field={props.fields.PromoTitle} />
+                {props.fields.PromoTitle?.value ?? ''}
               </h2>
             </div>
 
