@@ -1,5 +1,7 @@
 /**
  * This Layout is needed for Starter Kit.
+ * Header: first child of headless-header (e.g. promotions bar) keeps white background and black text.
+ * Second row (main header) is styled by the Header component (blue bar, logo, nav).
  */
 import React, { JSX } from 'react';
 import Head from 'next/head';
@@ -8,6 +10,7 @@ import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
 import { DesignLibraryLayout } from './DesignLibraryLayout';
 import { useRouter } from 'next/router';
+import { HeaderLogoContext } from '@/contexts/HeaderLogoContext';
 
 interface LayoutProps {
   page: Page;
@@ -65,9 +68,17 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
         ) : (
           <>
             <header>
-              <div id="header">
-                {route && <Placeholder name="headless-header" rendering={route} />}
-              </div>
+              <HeaderLogoContext.Provider value={false}>
+                {/* First direct child of headless-header (e.g. promotions bar) stays white bg + black text; rest is blue bar from Header */}
+                <div
+                  className="flex flex-col *:first:bg-background *:first:text-foreground *:first:[&_a]:text-foreground *:first:**:text-foreground *:first:**:font-normal"
+                  id="header-wrapper"
+                >
+                  {route && (
+                    <Placeholder name="headless-header" rendering={route} />
+                  )}
+                </div>
+              </HeaderLogoContext.Provider>
             </header>
             <main>
               <div id="content">

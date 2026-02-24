@@ -3,7 +3,7 @@ import { Default as Header } from '../components/header/Header';
 import { ComponentProps } from 'react';
 import { CommonParams, CommonRendering } from './common/commonData';
 import { renderStorybookPlaceholder } from './helpers/renderStorybookPlaceholder';
-import { getNavigationFields, logoParam } from './constants/navFields';
+import { getNavigationFields } from './constants/navFields';
 import { ComponentFields } from '@sitecore-content-sdk/nextjs';
 
 type StoryProps = ComponentProps<typeof Header> & {
@@ -61,15 +61,16 @@ export const WithPlaceholderData: Story = {
             [`header-left-${baseParams.DynamicPlaceholderId}`]: [
               {
                 ...CommonRendering,
-                componentName: 'LanguageSwitcher',
+                componentName: 'HeaderLogo',
                 params: CommonParams,
+                fields: {} as ComponentFields,
               },
             ],
             [`header-nav-${baseParams.DynamicPlaceholderId}`]: [
               {
                 ...CommonRendering,
                 componentName: 'Navigation',
-                params: { ...CommonParams, Logo: logoParam },
+                params: CommonParams,
                 fields: getNavigationFields() as unknown as ComponentFields,
               },
             ],

@@ -1,4 +1,4 @@
-import { createPlaceholderImageSrc, createTextField } from '../helpers/createFields';
+import { createBrooksLogoSrc, createTextField } from '../helpers/createFields';
 
 export const createNavItem = (text: string) => {
   return {
@@ -25,67 +25,79 @@ export const navRoot = {
   Styles: ['level0', 'submenu', 'item0', 'odd', 'first', 'last', 'active'],
 };
 
+/** Brooks Running–style top-level nav (Shop all, Women, Men, Apparel, Shoe Finder) */
 export const topLevelPages = [
   {
-    ...createNavItem('Furniture'),
+    ...createNavItem('Shop all'),
     Styles: ['level1', 'item0', 'odd', 'first'],
   },
   {
-    ...createNavItem('Decor'),
-    Styles: ['level1', 'item1', 'even'],
-  },
-  {
-    ...createNavItem('About us'),
+    ...createNavItem('Women'),
     Styles: ['level1', 'item1', 'even'],
     Children: [
       {
-        ...createNavItem('Our story'),
+        ...createNavItem('Shoes'),
         Styles: ['level2', 'item0', 'odd', 'first'],
       },
       {
-        ...createNavItem('Our team'),
+        ...createNavItem('Apparel'),
         Styles: ['level2', 'item1', 'even'],
-      },
-      {
-        ...createNavItem('Careers'),
-        Styles: ['level2', 'item2', 'odd', 'last'],
       },
     ],
   },
   {
-    ...createNavItem('Contact'),
+    ...createNavItem('Men'),
+    Styles: ['level1', 'item1', 'even'],
+    Children: [
+      {
+        ...createNavItem('Shoes'),
+        Styles: ['level2', 'item0', 'odd', 'first'],
+      },
+      {
+        ...createNavItem('Apparel'),
+        Styles: ['level2', 'item1', 'even'],
+      },
+    ],
+  },
+  {
+    ...createNavItem('Apparel'),
+    Styles: ['level1', 'item1', 'even'],
+    Children: [
+      {
+        ...createNavItem('Women'),
+        Styles: ['level2', 'item0', 'odd', 'first'],
+      },
+      {
+        ...createNavItem('Men'),
+        Styles: ['level2', 'item1', 'even', 'last'],
+      },
+    ],
+  },
+  {
+    ...createNavItem('Shoe Finder'),
     Styles: ['level1', 'submenu', 'item2', 'odd', 'last'],
   },
 ];
 
 export const flatTopLevelPages = [
   {
-    ...createNavItem('Furniture'),
+    ...createNavItem('Shop all'),
     Styles: ['level0', 'item0', 'odd', 'first', 'flat-level1'],
   },
   {
-    ...createNavItem('Decor'),
+    ...createNavItem('Women'),
     Styles: ['level0', 'item1', 'even', 'flat-level1'],
   },
   {
-    ...createNavItem('About us'),
+    ...createNavItem('Men'),
     Styles: ['level0', 'item1', 'even', 'flat-level1'],
   },
   {
-    ...createNavItem('Our story'),
+    ...createNavItem('Apparel'),
     Styles: ['level0', 'item0', 'odd', 'first', 'flat-level2'],
   },
   {
-    ...createNavItem('Our team'),
-    Styles: ['level0', 'item1', 'even', 'flat-level2'],
-  },
-  {
-    ...createNavItem('Careers'),
-    Styles: ['level0', 'item2', 'odd', 'last', 'flat-level2'],
-  },
-
-  {
-    ...createNavItem('Contact'),
+    ...createNavItem('Shoe Finder'),
     Styles: ['level0', 'submenu', 'item2', 'odd', 'last', 'flat-level1'],
   },
 ];
@@ -107,4 +119,4 @@ export const getNavigationFields = (options?: { withRoot?: boolean; flat?: boole
   return arrayToObject(pages);
 };
 
-export const logoParam = `<image mediaid="8cc2a449-e23b-488c-bb23-3d7c7a07f6e7" mediaurl="${createPlaceholderImageSrc(true)}" />`;
+export const logoParam = `<image mediaid="8cc2a449-e23b-488c-bb23-3d7c7a07f6e7" mediaurl="${createBrooksLogoSrc()}" />`;

@@ -7,7 +7,6 @@ import { ChevronDown } from 'lucide-react';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
 import { useClickAway } from '@/hooks/useClickAway';
 import { useStopResponsiveTransition } from '@/hooks/useStopResponsiveTransition';
-import { extractMediaUrl } from '@/helpers/extractMediaUrl';
 import {
   getLinkContent,
   getLinkField,
@@ -17,6 +16,7 @@ import {
 } from '@/helpers/navHelpers';
 import clsx from 'clsx';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
+import { getBrooksNavFields } from '@/lib/brooksNav';
 
 export interface NavItemFields {
   Id: string;
@@ -94,7 +94,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
           field={getLinkField(fields)}
           editable={page.mode.isEditing}
           onClick={clickHandler}
-          className="hover:text-foreground-light whitespace-nowrap transition-colors"
+          className="font-bold text-white hover:text-white/90 whitespace-nowrap transition-colors"
         >
           {getLinkContent(fields, logoSrc)}
         </Link>
@@ -150,11 +150,15 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
 export const Default = ({ params, fields }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { page } = useSitecore();
-  const { styles, RenderingIdentifier: id, Logo: logoImage, SimpleLayout: simpleLayout } = params;
+  const { styles, RenderingIdentifier: id, SimpleLayout: simpleLayout } = params;
 
   useStopResponsiveTransition();
 
-  if (!Object.values(fields).some((v) => !!v)) {
+  // Use Brooks nav and logo so header always matches Brooks branding
+  const effectiveFields = getBrooksNavFields();
+  const hasNavData = Object.values(effectiveFields).some((v) => !!v);
+
+  if (!hasNavData) {
     return (
       <div className={`component navigation ${styles}`} id={id}>
         <div className="component-content">[Navigation]</div>
@@ -170,10 +174,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
   };
 
   const isSimpleLayout = isParamEnabled(simpleLayout);
-  const preparedFields = prepareFields(fields, !isSimpleLayout);
-  const rootItem = Object.values(preparedFields).find((item) => isNavRootItem(item));
-  const logoSrc = extractMediaUrl(logoImage);
-  const hasLogoRootItem = rootItem && logoSrc;
+  const preparedFields = prepareFields(effectiveFields, !isSimpleLayout);
 
   const navigationItems = Object.values(preparedFields)
     .filter((item): item is NavItemFields => !!item)
@@ -182,34 +183,21 @@ export const Default = ({ params, fields }: NavigationProps) => {
         key={item.Id}
         fields={item}
         handleClick={(event) => handleToggleMenu(event, false)}
-        logoSrc={logoSrc}
         isSimpleLayout={!!isSimpleLayout}
       />
     ));
 
   return (
-    <div className={`component navigation bg-background ${styles}`} id={id}>
+    <div className={`component navigation bg-transparent ${styles}`} id={id}>
       <div
         className={clsx(
           'relative z-150 container flex items-center py-4 lg:hidden',
           !isSimpleLayout &&
             '[.component.header_&]:grid-cols-2 [.component.header_&]:px-0 [.component.header_&]:max-lg:grid',
           !isSimpleLayout ? 'flex-row-reverse' : '',
-          isSimpleLayout && !hasLogoRootItem ? 'justify-end' : 'justify-between'
+          'justify-end'
         )}
       >
-        {hasLogoRootItem && (
-          <Link
-            field={getLinkField(rootItem!)}
-            editable={page.mode.isEditing}
-            className={clsx(
-              'navigation-mobile-trigger',
-              !isSimpleLayout && '[.component.header_&]:mx-auto'
-            )}
-          >
-            {getLinkContent(rootItem!, logoSrc)}
-          </Link>
-        )}
         <HamburgerIcon
           isOpen={isMenuOpen}
           onClick={handleToggleMenu}
@@ -228,7 +216,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
 
       <nav
         className={clsx(
-          'bg-background z-100 flex duration-300',
+          'z-100 flex duration-300 max-lg:bg-accent lg:bg-transparent',
           'max-lg:fixed max-lg:inset-0',
           !isMenuOpen && 'max-lg:-translate-y-full max-lg:opacity-0'
         )}
@@ -237,7 +225,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
           role="menubar"
           className={clsx(
             'container flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 text-lg lg:flex-row xl:gap-x-16',
-            isSimpleLayout && !hasLogoRootItem && 'lg:justify-end'
+            'lg:justify-center'
           )}
         >
           {navigationItems}

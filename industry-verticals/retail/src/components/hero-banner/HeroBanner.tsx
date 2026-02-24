@@ -103,7 +103,7 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
               <div className={clsx({ shim: screenLayer })}>
                 {/* Title */}
                 <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] lg:text-left xl:text-[80px]">
-                  <ContentSdkText field={fields.Title} />
+                  <ContentSdkText tag="span" field={fields.Title} />
                   {!hideAccentLine && <AccentLine className="mx-auto !h-5 w-[9ch] lg:mx-0" />}
                 </h1>
 
@@ -151,7 +151,7 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
             <div className={clsx({ shim: screenLayer })}>
               {/* Title */}
               <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px]">
-                <ContentSdkText field={fields.Title} />
+                <ContentSdkText tag="span" field={fields.Title} />
                 {!hideAccentLine && <AccentLine className="mx-auto !h-5 w-[9ch]" />}
               </h1>
 

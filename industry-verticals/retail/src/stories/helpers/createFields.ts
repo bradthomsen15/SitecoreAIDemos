@@ -1,11 +1,15 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { RICH_MARKUP_INNER_HTML } from '../constants/richTextSamples';
-import { LOGO_SVG, PLACEHOLDER_SVG } from '../constants/images';
+import { LOGO_SVG, PLACEHOLDER_SVG, BROOKS_LOGO_SVG } from '../constants/images';
 
 export const createPlaceholderImageSrc = (isLogo?: boolean): string => {
   const svg = isLogo ? LOGO_SVG : PLACEHOLDER_SVG;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
+
+/** Data URI for Brooks Running logo (used in header/nav stories and demo). */
+export const createBrooksLogoSrc = (): string =>
+  `data:image/svg+xml;utf8,${encodeURIComponent(BROOKS_LOGO_SVG)}`;
 
 export const createImageField = (type: 'logo' | 'placeholder' = 'placeholder') => {
   const imageTypeProps = {

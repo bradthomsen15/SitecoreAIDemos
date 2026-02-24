@@ -24,7 +24,7 @@ export const getLinkContent = (fields: NavItemFields, logoSrc?: string): JSX.Ele
 
   const textField = fields.NavigationTitle || fields.Title;
   if (textField) {
-    return <Text field={textField} />;
+    return <Text tag="span" field={textField} />;
   }
 
   return fields.DisplayName;
