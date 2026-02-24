@@ -10,6 +10,7 @@ import {
   Text,
   TextField,
 } from '@sitecore-content-sdk/nextjs';
+import { FooterCopyrightText } from './FooterCopyrightText';
 import {
   faFacebookF,
   faInstagram,
@@ -259,7 +260,7 @@ export const Default = (props: FooterProps) => {
               ))}
             </div>
             <div className="order-1 text-xs text-foreground/70 sm:order-2">
-              <Text field={props.fields.CopyrightText} />
+              <FooterCopyrightText field={props.fields.CopyrightText} />
             </div>
           </div>
         </div>

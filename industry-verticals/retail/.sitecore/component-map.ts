@@ -9,6 +9,7 @@ import * as ThemeEditor from 'src/components/theme-editor/ThemeEditor';
 import * as Subscribe from 'src/components/subscribe/Subscribe';
 import * as SocialFollow from 'src/components/social-follow/SocialFollow';
 import * as SocialFeed from 'src/components/social-feed/SocialFeed';
+import * as SignUpShopBanner from 'src/components/sign-up-shop-banner/SignUpShopBanner';
 import * as SelectedProducts from 'src/components/selected-products/SelectedProducts';
 import * as SelectedArticles from 'src/components/selected-articles/SelectedArticles';
 import * as SectionWrapper from 'src/components/section-wrapper/SectionWrapper';
@@ -44,6 +45,7 @@ import * as Image from 'src/components/image/Image';
 import * as HeroBanner from 'src/components/hero-banner/HeroBanner';
 import * as HeaderLogo from 'src/components/header-logo/HeaderLogo';
 import * as Header from 'src/components/header/Header';
+import * as FooterCopyrightText from 'src/components/footer/FooterCopyrightText';
 import * as Footer from 'src/components/footer/Footer';
 import * as Features from 'src/components/features/Features';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
@@ -64,12 +66,13 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Subscribe', { ...Subscribe }],
   ['SocialFollow', { ...SocialFollow }],
   ['SocialFeed', { ...SocialFeed }],
+  ['SignUpShopBanner', { ...SignUpShopBanner }],
   ['SelectedProducts', { ...SelectedProducts }],
   ['SelectedArticles', { ...SelectedArticles, componentType: 'client' }],
   ['SectionWrapper', { ...SectionWrapper }],
   ['SearchResults', { ...SearchResults }],
   ['RowSplitter', { ...RowSplitter }],
-  ['RichText', { ...RichText }],
+  ['RichText', { ...RichText, componentType: 'client' }],
   ['Reviews', { ...Reviews }],
   ['Promo', { ...Promo }],
   ['ProductListing', { ...ProductListing }],
@@ -99,6 +102,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['HeroBanner', { ...HeroBanner }],
   ['HeaderLogo', { ...HeaderLogo, componentType: 'client' }],
   ['Header', { ...Header }],
+  ['FooterCopyrightText', { ...FooterCopyrightText, componentType: 'client' }],
   ['Footer', { ...Footer }],
   ['Features', { ...Features }],
   ['ContentBlock', { ...ContentBlock }],
