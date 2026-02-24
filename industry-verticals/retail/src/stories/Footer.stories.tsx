@@ -35,12 +35,12 @@ const baseRendering = {
 };
 
 const baseFields = {
-  TitleOne: createTextField('Furniture'),
-  TitleTwo: createTextField('Services'),
-  TitleThree: createTextField('Support'),
-  TitleFour: createTextField('Follow Us'),
-  TitleFive: createTextField('Install App'),
-  CopyrightText: createTextField('Copyright © 2025'),
+  TitleOne: createTextField('Run Community'),
+  TitleTwo: createTextField('Find Your Perfect Gear'),
+  TitleThree: createTextField('Customer Care'),
+  TitleFour: createTextField('Get to Know Our Brand'),
+  TitleFive: createTextField('Best Sellers'),
+  CopyrightText: createTextField('© 2026 Brooks Sports, Inc'),
   PolicyText: createLinkField('Privacy Policy'),
   TermsText: createLinkField('Terms & Conditions'),
   Description: createRichTextField(1),

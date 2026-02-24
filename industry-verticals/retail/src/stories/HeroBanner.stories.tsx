@@ -102,6 +102,23 @@ const createHeroBannerFields = () => ({
   CtaLink: createLinkField("See what's new"),
 });
 
+const createProductLaunchFields = () => ({
+  ...createHeroBannerFields(),
+  Title: createTextField('GLYCERIN FLEX'),
+  Description: createRichTextField(1),
+  Eyebrow: createTextField('THE NEW'),
+  CtaLink: createLinkField('SHOP WOMEN'),
+  SecondaryCtaLink: createLinkField('SHOP MEN'),
+});
+
+const createHomeHeroFields = () => ({
+  ...createHeroBannerFields(),
+  Title: createTextField('Discover Design That Speaks to You'),
+  Description: createRichTextField(1),
+  CtaLink: createLinkField('SHOP WOMEN'),
+  SecondaryCtaLink: createLinkField('SHOP MEN'),
+});
+
 export const Default: Story = {
   render: (args) => {
     const params = {
@@ -139,5 +156,35 @@ export const WithTopContent: Story = {
     const fields = createHeroBannerFields();
 
     return <TopContent params={params} rendering={baseRendering} fields={fields} />;
+  },
+};
+
+export const HomeHeroDualCta: Story = {
+  render: (args) => {
+    const params = {
+      ...baseParams,
+      styles: clsx(
+        baseParams.styles,
+        args.withoutGradientOverlay && HeroBannerStyles.HideGradientOverlay,
+        args.screenLayer && HeroBannerStyles.ScreenLayer
+      ),
+    };
+    const fields = createHomeHeroFields();
+    return <HeroBanner params={params} rendering={baseRendering} fields={fields} />;
+  },
+};
+
+export const ProductLaunchVariant: Story = {
+  render: (args) => {
+    const params = {
+      ...baseParams,
+      styles: clsx(
+        baseParams.styles,
+        args.withoutGradientOverlay && HeroBannerStyles.HideGradientOverlay,
+        args.screenLayer && HeroBannerStyles.ScreenLayer
+      ),
+    };
+    const fields = createProductLaunchFields();
+    return <ProductLaunch params={params} rendering={baseRendering} fields={fields} />;
   },
 };

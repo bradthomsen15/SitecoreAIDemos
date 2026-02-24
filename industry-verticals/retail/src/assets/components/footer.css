@@ -1,0 +1,21 @@
+/* Footer: vertical link lists and hide LinkList titles when inside footer columns */
+.footer .footer-links .link-list h1,
+.footer .footer-links .link-list h2,
+.footer .footer-links .link-list h3,
+.footer .footer-links .link-list h4,
+.footer .footer-links .link-list h5,
+.footer .footer-links .link-list h6 {
+  @apply hidden;
+}
+
+.footer .footer-links .link-list ul {
+  @apply flex flex-col flex-wrap gap-0;
+}
+
+.footer .footer-links .link-list li {
+  @apply list-none;
+}
+
+.footer .footer-links .link-list a {
+  @apply text-foreground/80 no-underline transition hover:text-foreground;
+}

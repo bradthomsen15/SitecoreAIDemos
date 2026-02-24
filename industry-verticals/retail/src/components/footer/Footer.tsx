@@ -5,12 +5,23 @@ import {
   ImageField,
   Link,
   LinkField,
-  Placeholder,
   RichText,
   RichTextField,
   Text,
   TextField,
 } from '@sitecore-content-sdk/nextjs';
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faStrava,
+  faTiktok,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { ArrowRight } from 'lucide-react';
 import React from 'react';
 
 interface Fields {
@@ -24,6 +35,8 @@ interface Fields {
   TermsText: LinkField;
   Logo: ImageField;
   Description: RichTextField;
+  /** Optional: newsletter heading (default Brooks copy) */
+  NewsletterTitle?: TextField;
 }
 
 type FooterProps = {
@@ -32,76 +45,225 @@ type FooterProps = {
   fields: Fields;
 };
 
+const DEFAULT_NEWSLETTER_TITLE =
+  "Sign up for new arrivals, sales, and limited-edition releases. It's the next best thing to signing up yesterday.";
+
+const SOCIAL_LINKS: { name: string; href: string; icon: IconDefinition; ariaLabel: string }[] = [
+  { name: 'Twitter', href: 'https://twitter.com/brooksrunning', icon: faTwitter, ariaLabel: 'Twitter' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@brooksrunning', icon: faTiktok, ariaLabel: 'TikTok' },
+  { name: 'Instagram', href: 'https://www.instagram.com/brooksrunning/', icon: faInstagram, ariaLabel: 'Instagram' },
+  { name: 'Facebook', href: 'https://www.facebook.com/brooksrunning', icon: faFacebookF, ariaLabel: 'Facebook' },
+  { name: 'Strava', href: 'https://www.strava.com/clubs/brooks-running', icon: faStrava, ariaLabel: 'Strava' },
+  { name: 'YouTube', href: 'https://www.youtube.com/brooksrunning', icon: faYoutube, ariaLabel: 'YouTube' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/brooks-sports', icon: faLinkedin, ariaLabel: 'LinkedIn' },
+];
+
+const LEGAL_LINKS = [
+  { label: 'Your Privacy Choices', href: '#', showIcon: true },
+  { label: 'Accessibility Statement', href: '#' },
+  { label: 'Supply Chain Transparency', href: '#' },
+  { label: 'Health Insurance Transparency', href: '#' },
+  { label: 'Fraud Protection', href: '#' },
+  { label: 'Health Data', href: '#' },
+  { label: 'CA Notice at Collection', href: '#' },
+  { label: 'Sitemap', href: '#' },
+];
+
+/** Column headings (replacing Furniture, Services, Support, etc.) */
+const COLUMN_TITLES = [
+  'Run Community',
+  'Find your perfect gear',
+  'Customer Care',
+  'Get to Know Our Brand',
+];
+
+/** Link labels under each column to match Brooks reference */
+const RUN_COMMUNITY_LINKS = [
+  'Future Run',
+  'PR Invite',
+  'Athletes',
+  'Sports Medicine Program',
+  'Community Heroes',
+  'Affiliate Program',
+].map((label) => ({ label, href: '#' }));
+
+const FIND_YOUR_PERFECT_GEAR_LINKS = [
+  'Shoe Finder',
+  'Bra Finder',
+  'Size Guides',
+  'Ask a Guru',
+  'Gift Guide',
+  'Used Gear',
+].map((label) => ({ label, href: '#' }));
+
+const CUSTOMER_CARE_LINKS = [
+  'Contact Us',
+  'Run Happy Promise',
+  'Returns',
+  'Track Order',
+  'Shipping',
+  'Store Locator',
+  'FAQ',
+  'Gift Cards',
+].map((label) => ({ label, href: '#' }));
+
+const GET_TO_KNOW_OUR_BRAND_LINKS = [
+  'Our Company',
+  'Our Purpose',
+  'Our History',
+  'Sustainability',
+  'Careers',
+  'Press',
+  'Research & Innovation',
+  'Running with Purpose: A book by former Brooks CEO Jim Weber',
+].map((label) => ({ label, href: '#' }));
+
+const COLUMN_LINKS = [
+  RUN_COMMUNITY_LINKS,
+  FIND_YOUR_PERFECT_GEAR_LINKS,
+  CUSTOMER_CARE_LINKS,
+  GET_TO_KNOW_OUR_BRAND_LINKS,
+];
+
+function getFieldValue(field: TextField | undefined, fallback: string): string {
+  if (!field?.value) return fallback;
+  const v = field.value?.toString?.() ?? '';
+  return v.trim() || fallback;
+}
+
 export const Default = (props: FooterProps) => {
-  // rendering item id
   const id = props.params.RenderingIdentifier;
 
-  // placeholders keys
-  const phKeyOne = `footer-list-first-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyTwo = `footer-list-second-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyThree = `footer-list-third-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyFour = `footer-list-fourth-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyFive = `footer-list-fifth-${props?.params?.DynamicPlaceholderId}`;
+  const newsletterTitle = getFieldValue(props.fields.NewsletterTitle, DEFAULT_NEWSLETTER_TITLE);
 
   const sections = [
-    {
-      key: 'first_nav',
-      title: <Text field={props.fields.TitleOne} />,
-      content: <Placeholder name={phKeyOne} rendering={props.rendering} />,
-    },
-    {
-      key: 'second_nav',
-      title: <Text field={props.fields.TitleTwo} />,
-      content: <Placeholder name={phKeyTwo} rendering={props.rendering} />,
-    },
-    {
-      key: 'third_nav',
-      title: <Text field={props.fields.TitleThree} />,
-      content: <Placeholder name={phKeyThree} rendering={props.rendering} />,
-    },
-    {
-      key: 'fourth_nav',
-      title: <Text field={props.fields.TitleFour} />,
-      content: <Placeholder name={phKeyFour} rendering={props.rendering} />,
-    },
-    {
-      key: 'fifth_nav',
-      title: <Text field={props.fields.TitleFive} />,
-      content: <Placeholder name={phKeyFive} rendering={props.rendering} />,
-    },
+    { key: 'first_nav', titleLabel: COLUMN_TITLES[0], links: COLUMN_LINKS[0] },
+    { key: 'second_nav', titleLabel: COLUMN_TITLES[1], links: COLUMN_LINKS[1] },
+    { key: 'third_nav', titleLabel: COLUMN_TITLES[2], links: COLUMN_LINKS[2] },
+    { key: 'fourth_nav', titleLabel: COLUMN_TITLES[3], links: COLUMN_LINKS[3] },
   ];
 
   return (
-    <section className={`component footer relative ${props.params.styles} overflow-hidden`} id={id}>
-      <div className="bg-background-muted">
-        <div className="container grid gap-12 py-28.5 lg:grid-cols-[1fr_3fr]">
-          <div className="flex flex-col gap-7">
-            <div className="sm:max-w-34">
-              <Image field={props.fields.Logo} />
-            </div>
-            <RichText field={props.fields.Description} />
-          </div>
-          <div className="grid gap-13 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5 xl:gap-12">
-            {sections.map(({ key, title, content }) => (
-              <div key={key}>
-                <div className="text-accent mb-8 text-lg font-bold">{title}</div>
-                <div className="space-y-4">{content}</div>
+    <footer
+      className={`component footer relative bg-background text-foreground ${props.params.styles ?? ''} overflow-hidden`}
+      id={id}
+    >
+      {/* Main: logo + newsletter + social | link columns */}
+      <div className="border-b border-neutral-200 bg-background">
+        <div className="container py-12 lg:py-14">
+          <div className="grid gap-12 lg:grid-cols-[1fr_2.2fr] lg:gap-16">
+            {/* Left: logo, newsletter, social */}
+            <div className="flex flex-col gap-8">
+              <div className="max-w-34 text-primary">
+                <Image field={props.fields.Logo} />
               </div>
-            ))}
+              <div className="footer-newsletter">
+                <p className="text-sm text-foreground/90">{newsletterTitle}</p>
+                <form
+                  className="mt-4"
+                  onSubmit={(e) => e.preventDefault()}
+                  noValidate
+                >
+                  <label htmlFor="footer-email" className="mb-1.5 block text-xs font-medium text-foreground">
+                    Email address
+                  </label>
+                  <div className="flex gap-0">
+                    <input
+                      id="footer-email"
+                      type="email"
+                      placeholder="E.g. John.doe@gmail.com"
+                      className="min-w-0 flex-1 rounded-l border border-neutral-300 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+                      aria-label="Email address"
+                    />
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center rounded-r bg-neutral-900 px-4 py-2.5 text-white transition hover:bg-neutral-800"
+                      aria-label="Subscribe"
+                    >
+                      <ArrowRight className="h-5 w-5" strokeWidth={2} />
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div className="footer-social flex flex-wrap items-center gap-5">
+                {SOCIAL_LINKS.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-700 transition hover:text-neutral-900"
+                    aria-label={social.ariaLabel}
+                  >
+                    <FontAwesomeIcon icon={social.icon} className="h-5 w-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: four link columns */}
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {sections.map(({ key, titleLabel, links }) => (
+                <div key={key} className="footer-column">
+                  <div className="mb-4 text-xs font-extrabold uppercase tracking-wide text-foreground">
+                    {titleLabel}
+                  </div>
+                  <nav className="footer-links space-y-2 text-sm text-foreground/80 [&_a]:transition hover:[&_a]:text-foreground [&_a]:no-underline">
+                    {links.map((item) => (
+                      <a key={item.label} href={item.href} className="block">
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Optional description row (e.g. for rich text below logo area) */}
+      {(props.fields.Description?.value?.toString?.()?.trim()) && (
+        <div className="border-b border-neutral-200 bg-background">
+          <div className="container py-6">
+            <div className="footer-description text-sm text-foreground/80 [&_a]:text-foreground [&_a]:underline hover:[&_a]:text-foreground/90">
+              <RichText field={props.fields.Description} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bottom: legal links | copyright */}
       <div className="bg-background">
-        <div className="container flex items-center justify-between py-8.5 max-sm:flex-col max-sm:items-start max-sm:gap-10">
-          <div className="max-sm:order-2">
-            <Text field={props.fields.CopyrightText} />
-          </div>
-          <div className="flex items-center justify-between gap-20 max-lg:gap-10 max-sm:order-1 max-sm:flex-col max-sm:items-start max-sm:gap-5">
-            <Link field={props.fields.TermsText} className="hover:underline" />
-            <Link field={props.fields.PolicyText} className="hover:underline" />
+        <div className="container py-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="order-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/80 sm:order-1">
+              <Link field={props.fields.TermsText} className="hover:underline" />
+              <Link field={props.fields.PolicyText} className="hover:underline" />
+              {LEGAL_LINKS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 hover:underline"
+                >
+                  {item.showIcon && (
+                    <span
+                      className="inline-flex h-4 w-4 items-center justify-center rounded border border-current text-[10px] font-bold"
+                      aria-hidden
+                    >
+                      ×
+                    </span>
+                  )}
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <div className="order-1 text-xs text-foreground/70 sm:order-2">
+              <Text field={props.fields.CopyrightText} />
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
