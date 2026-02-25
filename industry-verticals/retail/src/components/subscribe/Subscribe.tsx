@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
 import { ComponentProps } from '@/lib/component-props';
-import { Text, Field, RichText, RichTextField } from '@sitecore-content-sdk/nextjs';
+import { Field, RichText, RichTextField } from '@sitecore-content-sdk/nextjs';
 import { useI18n } from 'next-localization';
 
 export type SubscribeBannerProps = ComponentProps & {
@@ -17,19 +17,14 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
 
   return (
     <section
-      className={`component subscribe-banner group text-white py-10 md:py-14 ${styles ?? ''}`}
-      style={{ backgroundColor: '#003789' }}
+      className={`component subscribe-banner group bg-[#003789] text-white py-10 md:py-14 ${styles ?? ''}`}
       id={id || undefined}
     >
       <div className="container max-w-4xl md:max-w-5xl md:px-10">
         <div className="grid items-center gap-y-6 md:grid-cols-2 md:gap-x-12 md:gap-y-0">
           {/* Headline */}
           <h2 className="text-2xl leading-tight font-medium text-white xl:text-3xl">
-            {props.fields?.Title ? (
-              <Text field={props.fields.Title} />
-            ) : (
-              'Sign up for our latest deals'
-            )}
+            {props.fields?.Title?.value ?? 'Sign up for our latest deals'}
           </h2>
 
           {/* Form */}
@@ -71,19 +66,14 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
 
   return (
     <section
-      className={`component subscribe-banner group text-white ${styles ?? ''}`}
-      style={{ backgroundColor: '#003789' }}
+      className={`component subscribe-banner subscribe-banner-theme-default group text-white ${styles ?? ''}`}
       id={id || undefined}
     >
       {/* Headline*/}
       <div className="max-w-sm">
         <div className="mb-6">
           <h2 className="text-lg leading-tight font-medium text-white xl:text-xl">
-            {props.fields?.Title ? (
-              <Text field={props.fields.Title} />
-            ) : (
-              'Sign up for our latest deals'
-            )}
+            {props.fields?.Title?.value ?? 'Sign up for our latest deals'}
           </h2>
         </div>
 

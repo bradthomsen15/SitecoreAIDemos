@@ -7,7 +7,6 @@ import {
   LinkField,
   RichText,
   RichTextField,
-  Text,
   TextField,
 } from '@sitecore-content-sdk/nextjs';
 import { FooterCopyrightText } from './FooterCopyrightText';
@@ -50,13 +49,48 @@ const DEFAULT_NEWSLETTER_TITLE =
   "Sign up for new arrivals, sales, and limited-edition releases. It's the next best thing to signing up yesterday.";
 
 const SOCIAL_LINKS: { name: string; href: string; icon: IconDefinition; ariaLabel: string }[] = [
-  { name: 'Twitter', href: 'https://twitter.com/brooksrunning', icon: faTwitter, ariaLabel: 'Twitter' },
-  { name: 'TikTok', href: 'https://www.tiktok.com/@brooksrunning', icon: faTiktok, ariaLabel: 'TikTok' },
-  { name: 'Instagram', href: 'https://www.instagram.com/brooksrunning/', icon: faInstagram, ariaLabel: 'Instagram' },
-  { name: 'Facebook', href: 'https://www.facebook.com/brooksrunning', icon: faFacebookF, ariaLabel: 'Facebook' },
-  { name: 'Strava', href: 'https://www.strava.com/clubs/brooks-running', icon: faStrava, ariaLabel: 'Strava' },
-  { name: 'YouTube', href: 'https://www.youtube.com/brooksrunning', icon: faYoutube, ariaLabel: 'YouTube' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/brooks-sports', icon: faLinkedin, ariaLabel: 'LinkedIn' },
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/brooksrunning',
+    icon: faTwitter,
+    ariaLabel: 'Twitter',
+  },
+  {
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@brooksrunning',
+    icon: faTiktok,
+    ariaLabel: 'TikTok',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/brooksrunning/',
+    icon: faInstagram,
+    ariaLabel: 'Instagram',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/brooksrunning',
+    icon: faFacebookF,
+    ariaLabel: 'Facebook',
+  },
+  {
+    name: 'Strava',
+    href: 'https://www.strava.com/clubs/brooks-running',
+    icon: faStrava,
+    ariaLabel: 'Strava',
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/brooksrunning',
+    icon: faYoutube,
+    ariaLabel: 'YouTube',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/brooks-sports',
+    icon: faLinkedin,
+    ariaLabel: 'LinkedIn',
+  },
 ];
 
 const LEGAL_LINKS = [
@@ -146,26 +180,25 @@ export const Default = (props: FooterProps) => {
 
   return (
     <footer
-      className={`component footer relative bg-background text-foreground ${props.params.styles ?? ''} overflow-hidden`}
+      className={`component footer bg-background text-foreground relative ${props.params.styles ?? ''} overflow-hidden`}
       id={id}
     >
       {/* Main: logo + newsletter + social | link columns */}
-      <div className="border-b border-neutral-200 bg-background">
+      <div className="bg-background border-b border-neutral-200">
         <div className="container py-12 lg:py-14">
           <div className="grid gap-12 lg:grid-cols-[1fr_2.2fr] lg:gap-16">
             {/* Left: logo, newsletter, social */}
             <div className="flex flex-col gap-8">
-              <div className="max-w-34 text-primary">
+              <div className="text-primary max-w-34">
                 <Image field={props.fields.Logo} />
               </div>
               <div className="footer-newsletter">
-                <p className="text-sm text-foreground/90">{newsletterTitle}</p>
-                <form
-                  className="mt-4"
-                  onSubmit={(e) => e.preventDefault()}
-                  noValidate
-                >
-                  <label htmlFor="footer-email" className="mb-1.5 block text-xs font-medium text-foreground">
+                <p className="text-foreground/90 text-sm">{newsletterTitle}</p>
+                <form className="mt-4" onSubmit={(e) => e.preventDefault()} noValidate>
+                  <label
+                    htmlFor="footer-email"
+                    className="text-foreground mb-1.5 block text-xs font-medium"
+                  >
                     Email address
                   </label>
                   <div className="flex gap-0">
@@ -173,7 +206,7 @@ export const Default = (props: FooterProps) => {
                       id="footer-email"
                       type="email"
                       placeholder="E.g. John.doe@gmail.com"
-                      className="min-w-0 flex-1 rounded-l border border-neutral-300 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+                      className="bg-background text-foreground min-w-0 flex-1 rounded-l border border-neutral-300 px-3 py-2.5 text-sm placeholder:text-neutral-500 focus:border-neutral-500 focus:ring-1 focus:ring-neutral-500 focus:outline-none"
                       aria-label="Email address"
                     />
                     <button
@@ -206,10 +239,10 @@ export const Default = (props: FooterProps) => {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {sections.map(({ key, titleLabel, links }) => (
                 <div key={key} className="footer-column">
-                  <div className="mb-4 text-xs font-extrabold uppercase tracking-wide text-foreground">
+                  <div className="text-foreground mb-4 text-xs font-extrabold tracking-wide uppercase">
                     {titleLabel}
                   </div>
-                  <nav className="footer-links space-y-2 text-sm text-foreground/80 [&_a]:transition hover:[&_a]:text-foreground [&_a]:no-underline">
+                  <nav className="footer-links text-foreground/80 hover:[&_a]:text-foreground space-y-2 text-sm [&_a]:no-underline [&_a]:transition">
                     {links.map((item) => (
                       <a key={item.label} href={item.href} className="block">
                         {item.label}
@@ -224,10 +257,10 @@ export const Default = (props: FooterProps) => {
       </div>
 
       {/* Optional description row (e.g. for rich text below logo area) */}
-      {(props.fields.Description?.value?.toString?.()?.trim()) && (
-        <div className="border-b border-neutral-200 bg-background">
+      {props.fields.Description?.value?.toString?.()?.trim() && (
+        <div className="bg-background border-b border-neutral-200">
           <div className="container py-6">
-            <div className="footer-description text-sm text-foreground/80 [&_a]:text-foreground [&_a]:underline hover:[&_a]:text-foreground/90">
+            <div className="footer-description text-foreground/80 [&_a]:text-foreground hover:[&_a]:text-foreground/90 text-sm [&_a]:underline">
               <RichText field={props.fields.Description} />
             </div>
           </div>
@@ -238,7 +271,7 @@ export const Default = (props: FooterProps) => {
       <div className="bg-background">
         <div className="container py-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="order-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/80 sm:order-1">
+            <div className="text-foreground/80 order-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:order-1">
               <Link field={props.fields.TermsText} className="hover:underline" />
               <Link field={props.fields.PolicyText} className="hover:underline" />
               {LEGAL_LINKS.map((item) => (
@@ -259,7 +292,7 @@ export const Default = (props: FooterProps) => {
                 </a>
               ))}
             </div>
-            <div className="order-1 text-xs text-foreground/70 sm:order-2">
+            <div className="text-foreground/70 order-1 text-xs sm:order-2">
               <FooterCopyrightText field={props.fields.CopyrightText} />
             </div>
           </div>

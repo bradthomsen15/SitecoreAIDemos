@@ -41,7 +41,7 @@ const HeroBannerCommon = ({
   const { styles, RenderingIdentifier: id } = params;
   const isPageEditing = page.mode.isEditing;
   const hideGradientOverlay = styles?.includes(HeroBannerStyles.HideGradientOverlay);
-  const darkOverlay = styles?.includes(HeroBannerStyles.DarkOverlay);
+  const darkOverlay = styles?.includes(HeroBannerStyles.DarkOverlay) ?? true;
 
   if (!fields) {
     return isPageEditing ? (

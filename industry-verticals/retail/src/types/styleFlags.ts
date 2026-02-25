@@ -15,6 +15,7 @@ export enum PromoFlags {
 }
 
 export enum HeroBannerStyles {
+  DarkOverlay = 'dark-overlay',
   HideGradientOverlay = 'hide-gradient-overlay',
   WithPlaceholder = 'with-placeholder',
   ScreenLayer = 'screen-layer',

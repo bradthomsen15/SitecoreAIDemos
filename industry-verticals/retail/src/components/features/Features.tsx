@@ -115,7 +115,7 @@ export const ImageGrid = (props: FeaturesProps) => {
       <div className="container flex flex-col gap-6 py-9">
         {(sectionTitle?.jsonValue?.value || isEditing) && (
           <h2 className="text-center text-2xl font-bold md:text-3xl">
-            <Text field={sectionTitle?.jsonValue} />
+            {sectionTitle?.jsonValue?.value ?? ''}
           </h2>
         )}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">

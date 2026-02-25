@@ -12,7 +12,7 @@ import { useMemo, useRef, useState, useEffect, useId, useCallback } from 'react'
 import React from 'react';
 import Head from 'next/head';
 import { useI18n } from 'next-localization';
-import { faFacebookF, faInstagram, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedin, faTwitter, faYoutube, faStrava, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '@/assets/icons/social/social';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
@@ -82,8 +82,8 @@ import { getBrooksNavFields } from '@/lib/brooksNav';
 import { useRouter as useRouter_0e8a928699f624a3ad05eb9c9906b0e7ce1a00be } from 'next/router';
 import { Select as Select_4a7098778d43a9b4dcd5871ec48ea51b5a246850, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'src/shadcn/components/ui/select';
 import { localeOptions } from '@/constants/localeOptions';
-import { Default } from '@/components/header-logo/HeaderLogo';
 import { useHeaderLogoRendered } from '@/contexts/HeaderLogoContext';
+import { FooterCopyrightText } from 'src/components/footer/FooterCopyrightText';
 import { generateIndexes } from '@/helpers/generateIndexes';
 import client from 'lib/sitecore-client';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
@@ -142,6 +142,8 @@ const importMap = [
       { name: 'faLinkedin', value: faLinkedin },
       { name: 'faTwitter', value: faTwitter },
       { name: 'faYoutube', value: faYoutube },
+      { name: 'faStrava', value: faStrava },
+      { name: 'faTiktok', value: faTiktok },
     ]
   },
   {
@@ -637,15 +639,15 @@ const importMap = [
     ]
   },
   {
-    module: '@/components/header-logo/HeaderLogo',
-    exports: [
-      { name: 'Default', value: Default },
-    ]
-  },
-  {
     module: '@/contexts/HeaderLogoContext',
     exports: [
       { name: 'useHeaderLogoRendered', value: useHeaderLogoRendered },
+    ]
+  },
+  {
+    module: 'src/components/footer/FooterCopyrightText',
+    exports: [
+      { name: 'FooterCopyrightText', value: FooterCopyrightText },
     ]
   },
   {

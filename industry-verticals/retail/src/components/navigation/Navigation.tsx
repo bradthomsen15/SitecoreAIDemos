@@ -94,7 +94,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
           field={getLinkField(fields)}
           editable={page.mode.isEditing}
           onClick={clickHandler}
-          className="font-bold text-white hover:text-white/90 whitespace-nowrap transition-colors"
+          className="font-bold whitespace-nowrap text-white transition-colors hover:text-white/90"
         >
           {getLinkContent(fields, logoSrc)}
         </Link>
@@ -152,6 +152,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
   const { page } = useSitecore();
   const { styles, RenderingIdentifier: id, SimpleLayout: simpleLayout } = params;
 
+  console.log('fields', fields);
   useStopResponsiveTransition();
 
   // Use Brooks nav and logo so header always matches Brooks branding
@@ -216,7 +217,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
 
       <nav
         className={clsx(
-          'z-100 flex duration-300 max-lg:bg-accent lg:bg-transparent',
+          'max-lg:bg-accent z-100 flex duration-300 lg:bg-transparent',
           'max-lg:fixed max-lg:inset-0',
           !isMenuOpen && 'max-lg:-translate-y-full max-lg:opacity-0'
         )}

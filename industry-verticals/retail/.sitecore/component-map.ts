@@ -43,7 +43,6 @@ import * as LinkList from 'src/components/link-list/LinkList';
 import * as LanguageSwitcher from 'src/components/language-switcher/LanguageSwitcher';
 import * as Image from 'src/components/image/Image';
 import * as HeroBanner from 'src/components/hero-banner/HeroBanner';
-import * as HeaderLogo from 'src/components/header-logo/HeaderLogo';
 import * as Header from 'src/components/header/Header';
 import * as FooterCopyrightText from 'src/components/footer/FooterCopyrightText';
 import * as Footer from 'src/components/footer/Footer';
@@ -100,7 +99,6 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['LanguageSwitcher', { ...LanguageSwitcher, componentType: 'client' }],
   ['Image', { ...Image }],
   ['HeroBanner', { ...HeroBanner }],
-  ['HeaderLogo', { ...HeaderLogo, componentType: 'client' }],
   ['Header', { ...Header }],
   ['FooterCopyrightText', { ...FooterCopyrightText, componentType: 'client' }],
   ['Footer', { ...Footer }],

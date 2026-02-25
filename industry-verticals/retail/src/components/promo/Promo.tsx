@@ -12,7 +12,7 @@ import { ComponentProps } from 'lib/component-props';
 import clsx from 'clsx';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { Quote } from '@/assets/icons/quote/Quote';
-import { CommonStyles, LayoutStyles, PromoFlags } from '@/types/styleFlags';
+import { LayoutStyles, PromoFlags } from '@/types/styleFlags';
 
 interface Fields {
   PromoImageOne: ImageField;
@@ -39,13 +39,11 @@ export type PromoProps = ComponentProps & {
 const isShadowClassActive = (val: boolean) => (val ? 'shadow-2xl' : '');
 
 export const PromoContent = ({ ...props }) => {
-  const isAccentLineVisible = !props?.params?.styles?.includes(CommonStyles.HideAccentLine);
+  const isAccentLineVisible = false;
 
   return (
     <div className="space-y-5" suppressHydrationWarning>
-      <div className="eyebrow">
-        {props.fields.PromoSubTitle?.value ?? ''}
-      </div>
+      <div className="eyebrow">{props.fields.PromoSubTitle?.value ?? ''}</div>
 
       <h2 className="inline-block max-w-md">
         {props.fields.PromoTitle?.value ?? ''}
@@ -206,9 +204,7 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
 
           <div className="grid-col-1 grid gap-5 md:grid-cols-2">
             <div className="font-bold">
-              <h2 className="max-w-md">
-                {props.fields.PromoTitle?.value ?? ''}
-              </h2>
+              <h2 className="max-w-md">{props.fields.PromoTitle?.value ?? ''}</h2>
             </div>
 
             <div className="flex max-w-md items-center">
