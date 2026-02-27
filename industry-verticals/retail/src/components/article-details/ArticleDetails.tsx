@@ -14,6 +14,44 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import SocialShare from '../non-sitecore/SocialShare';
 
+/** Renders plain img until mount, then Sitecore Image (avoids hydration mismatch with edit wrappers). */
+function ClientOnlyArticleImage({
+  field,
+  className,
+}: {
+  field: ImageField;
+  className?: string;
+}) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const src = field?.value?.src;
+  const alt = field?.value?.alt != null ? String(field.value.alt) : '';
+  if (!src) return null;
+  if (!mounted) return <img src={src} alt={alt} className={className} />;
+  return <ContentSdkImage field={field} className={className} />;
+}
+
+/** Renders plain text until mount, then Sitecore Text for editing (avoids hydration mismatch). */
+function ClientOnlyArticleText({
+  field,
+  tag: Tag = 'span',
+  className,
+}: {
+  field: Field<string>;
+  tag?: 'h2' | 'p' | 'span';
+  className?: string;
+}) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const value = field?.value != null ? String(field.value) : '';
+  if (!mounted) return <Tag className={className}>{value}</Tag>;
+  return (
+    <Tag className={className}>
+      <ContentSdkText field={field} />
+    </Tag>
+  );
+}
+
 interface Fields {
   Title: Field<string>;
   ShortDescription: Field<string>;
@@ -76,20 +114,17 @@ export const Default = ({ params, fields, rendering }: ArticleDetailsProps) => {
             )}
 
             <div className="col-span-12 aspect-video w-full overflow-hidden rounded-lg lg:col-span-10 lg:col-start-2">
-              <ContentSdkImage field={fields.Image} className="h-full w-full object-cover" />
+              <ClientOnlyArticleImage field={fields.Image} className="h-full w-full object-cover" />
             </div>
 
             <div className="col-span-12 mt-8 lg:col-span-8 lg:col-start-3">
-              <h2 suppressHydrationWarning>
-                <ContentSdkText field={fields.Title} />
-              </h2>
+              <ClientOnlyArticleText field={fields.Title} tag="h2" />
 
-              <p
+              <ClientOnlyArticleText
+                field={fields.ShortDescription}
+                tag="p"
                 className="text-foreground-muted mt-5 text-lg font-medium tracking-wide"
-                suppressHydrationWarning
-              >
-                <ContentSdkText field={fields.ShortDescription} />
-              </p>
+              />
 
               <div className="rich-text mt-10 text-lg">
                 <ContentSdkRichText field={fields.Content} />
