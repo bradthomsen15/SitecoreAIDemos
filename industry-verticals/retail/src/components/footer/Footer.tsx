@@ -22,7 +22,18 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ArrowRight } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+/** Renders plain img until mount, then Sitecore Image to avoid hydration mismatch with edit wrappers. */
+function ClientOnlyFooterLogo({ field, className }: { field: ImageField; className?: string }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const src = field?.value?.src;
+  const alt = field?.value?.alt != null ? String(field.value.alt) : '';
+  if (!src) return null;
+  if (!mounted) return <img src={src} alt={alt} className={className} />;
+  return <Image field={field} className={className} />;
+}
 
 interface Fields {
   TitleOne: TextField;
@@ -189,9 +200,11 @@ export const Default = (props: FooterProps) => {
           <div className="grid gap-12 lg:grid-cols-[1fr_2.2fr] lg:gap-16">
             {/* Left: logo, newsletter, social */}
             <div className="flex flex-col gap-8">
-              <div className="text-primary max-w-34">
-                <Image field={props.fields.Logo} />
-              </div>
+              {props.fields.Logo && (
+                <div className="text-primary max-w-34">
+                  <ClientOnlyFooterLogo field={props.fields.Logo} />
+                </div>
+              )}
               <div className="footer-newsletter">
                 <p className="text-foreground/90 text-sm">{newsletterTitle}</p>
                 <form className="mt-4" onSubmit={(e) => e.preventDefault()} noValidate>

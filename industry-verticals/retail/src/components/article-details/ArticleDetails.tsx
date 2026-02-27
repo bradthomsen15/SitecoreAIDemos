@@ -80,11 +80,14 @@ export const Default = ({ params, fields, rendering }: ArticleDetailsProps) => {
             </div>
 
             <div className="col-span-12 mt-8 lg:col-span-8 lg:col-start-3">
-              <h2>
+              <h2 suppressHydrationWarning>
                 <ContentSdkText field={fields.Title} />
               </h2>
 
-              <p className="text-foreground-muted mt-5 text-lg font-medium tracking-wide">
+              <p
+                className="text-foreground-muted mt-5 text-lg font-medium tracking-wide"
+                suppressHydrationWarning
+              >
                 <ContentSdkText field={fields.ShortDescription} />
               </p>
 
