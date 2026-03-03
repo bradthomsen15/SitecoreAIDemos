@@ -1,4 +1,4 @@
-# SitecoreAI Industry Verticals Front End Sites - Sites that move mounts
+# SitecoreAI Industry Verticals Front End Sites - Sites that move your mom
 
 ## Table of Contents
 
