@@ -1,4 +1,4 @@
-# SitecoreAI Industry Verticals Front End Sites
+# SitecoreAI Industry Verticals
 
 ## Table of Contents
 
