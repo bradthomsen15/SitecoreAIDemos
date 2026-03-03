@@ -1,4 +1,4 @@
-# SitecoreAI Industry Verticals
+# SitecoreAI Industry Verticals Making a change
 
 ## Table of Contents
 
