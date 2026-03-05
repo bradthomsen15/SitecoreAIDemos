@@ -41,9 +41,7 @@ export const Default = (props: ReviewsProps) => {
       <div className="container py-20">
         {/* Heading Section */}
         <div className="text-center">
-          <p className="eyebrow pb-4">
-            {sectionEyebrow?.value ?? ''}
-          </p>
+          <p className="eyebrow pb-4">{sectionEyebrow?.value ?? ''}</p>
           <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="inline-block font-bold max-lg:text-5xl" aria-label="section-title">
               {sectionTitle?.value ?? ''}

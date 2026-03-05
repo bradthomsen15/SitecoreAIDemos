@@ -31,6 +31,15 @@ function ClientOnlySectionTitle({
   );
 }
 
+/** Renders section title content only (no wrapper). Plain text on server, Sitecore Text after mount to avoid hydration mismatch. */
+function ClientOnlySectionTitleContent({ field }: { field: IGQLTextField }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const value = field?.jsonValue?.value != null ? String(field.jsonValue.value) : '';
+  if (!mounted) return <>{value}</>;
+  return <Text field={field.jsonValue} />;
+}
+
 /** Per-item title: plain text until mount, then Sitecore Text for editing (avoids hydration mismatch). */
 function ClientOnlyText({
   field,
@@ -84,7 +93,11 @@ const FeatureWrapper = (wrapperProps: FeatureWrapperProps) => {
   const id = wrapperProps.props.params.RenderingIdentifier;
 
   return (
-    <section className={`${wrapperProps.props.params.styles}`} id={id ? id : undefined}>
+    <section
+      className={`component features ${wrapperProps.props.params.styles ?? ''}`.trim()}
+      id={id ?? undefined}
+      suppressHydrationWarning
+    >
       {wrapperProps.children}
     </section>
   );
@@ -101,7 +114,7 @@ export const Default = (props: FeaturesProps) => {
       <div className="container grid grid-cols-1 py-20 lg:grid-cols-[1fr_2fr] lg:gap-10">
         <div className="mb-20 lg:mb-0">
           <h2 className="inline-block max-w-md font-bold max-lg:text-[42px]">
-            <Text field={featureSectionTitle.jsonValue} />
+            <ClientOnlySectionTitleContent field={featureSectionTitle} />
             {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}
           </h2>
         </div>
@@ -114,10 +127,10 @@ export const Default = (props: FeaturesProps) => {
               <div className="flex flex-col" key={index}>
                 {/* Title, Link and Description */}
                 <div className="mb-5 text-2xl font-bold">
-                  <Text field={title} />
+                  <ClientOnlyText field={title} />
                 </div>
                 <div className="text-foreground mb-3.5 flex-auto leading-7">
-                  <Text field={description} />
+                  <ClientOnlyText field={description} />
                 </div>
                 <div>
                   <Link field={link} className="arrow-btn" />
@@ -186,16 +199,21 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
           return (
             <div className="flex flex-col items-center justify-start 2xl:w-80" key={index}>
               {/* Image */}
-              <div className="bg-accent mb-7 flex h-25 w-25 items-center justify-center rounded-full">
+              <div
+                className="bg-accent mb-7 flex h-25 w-25 items-center justify-center rounded-full"
+                suppressHydrationWarning
+              >
                 <Image field={image} />
               </div>
               {/* Title and Description */}
               <div className="flex flex-col items-center justify-center">
                 <div className="mb-2 leading-0.5">
-                  <Text tag="h5" className="text-accent" field={title} />
+                  <h5 className="text-accent">
+                    <ClientOnlyText field={title} />
+                  </h5>
                 </div>
                 <div className="text-background-muted-light text-center">
-                  <Text field={description} />
+                  <ClientOnlyText field={description} />
                 </div>
               </div>
             </div>
@@ -228,10 +246,10 @@ export const NumberedGrid = (props: FeaturesProps) => {
               {/* Title and Description */}
               <div>
                 <div className="text-accent group-hover:text-background mb-4 text-2xl leading-8 font-bold">
-                  <Text field={title} />
+                  <ClientOnlyText field={title} />
                 </div>
                 <div className="text-background-muted-dark group-hover:text-background leading-7">
-                  <Text field={description} />
+                  <ClientOnlyText field={description} />
                 </div>
               </div>
             </div>
@@ -256,16 +274,19 @@ export const FourColGrid = (props: FeaturesProps) => {
           return (
             <div className="grid grid-cols-[1fr_2fr] gap-2.5" key={index}>
               {/* Image */}
-              <div className="flex h-25 w-25 shrink-0 items-center justify-center rounded-full">
+              <div
+                className="flex h-25 w-25 shrink-0 items-center justify-center rounded-full"
+                suppressHydrationWarning
+              >
                 <Image field={image} className="max-h-25 max-w-25 object-contain" />
               </div>
               {/* Title and Description */}
               <div className="flex flex-col justify-center">
                 <div className="text-xl leading-9 font-bold">
-                  <Text className="text-foreground" field={title} />
+                  <ClientOnlyText field={title} className="text-foreground" />
                 </div>
                 <div className="text-background-muted-light leading-8">
-                  <Text field={description} />
+                  <ClientOnlyText field={description} />
                 </div>
               </div>
             </div>
@@ -288,16 +309,19 @@ export const ImageCardGrid = (props: FeaturesProps) => {
           const image = item.featureImage.jsonValue;
           return (
             <div key={index}>
-              <div className="mb-7 aspect-4/3 w-full overflow-hidden rounded-lg bg-white">
+              <div
+                className="mb-7 aspect-4/3 w-full overflow-hidden rounded-lg bg-white"
+                suppressHydrationWarning
+              >
                 <Image field={image} className="h-full w-full object-cover" />
               </div>
 
               <h6>
-                <Text field={title} />
+                <ClientOnlyText field={title} />
               </h6>
 
               <p className="text-foreground-muted mt-1 text-lg">
-                <Text field={description} />
+                <ClientOnlyText field={description} />
               </p>
             </div>
           );

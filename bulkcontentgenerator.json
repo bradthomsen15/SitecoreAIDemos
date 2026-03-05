@@ -1,0 +1,754 @@
+{
+  "schema_version": "2.0",
+  "id": "mass-content-generator",
+  "name": "Brooks Running Persona Home Page Generator",
+  "description": "Creates 5 home page variants for Brooks Running (brooksrunning.com) based on runner-focused personas: Avid Disney Person, 10K Runner, Marathon Runner, Beginner Runner, Trail / Half Marathon Runner.",
+  "gettingStarted": {
+    "title": "What is the Brooks Persona Home Page Generator?",
+    "howItWorks": "Describe your home page content requirements and select the persona(s). The agent will generate a customized Brooks home page for each persona, with runner-focused copy and styling that matches the existing home page.",
+    "whatIsItFor": "Creates persona-based home page variations for Brooks Running — Avid Disney runner, 10K runner, marathon runner, beginner runner, and trail/half marathon runner. Styling matches the existing retail home page."
+  },
+  "inputs": [
+    {
+      "type": "prompt",
+      "label": "Content Requirements",
+      "minLines": 3,
+      "required": true,
+      "description": "Describe the Brooks home page content you want (e.g. hero focus, key products, Run Happy messaging)",
+      "placeholder": "e.g. Home page for Brooks with persona-specific hero and features..."
+    },
+    {
+      "type": "context",
+      "label": "Ground with context",
+      "required": false,
+      "description": "Optionally select artifacts or knowledge to provide additional context"
+    },
+    {
+      "type": "file-upload",
+      "label": "Add more context",
+      "required": false,
+      "description": "Please add any reference materials"
+    }
+  ],
+  "contextParameters": [
+    {
+      "key": "channels",
+      "type": "array",
+      "label": "Channels",
+      "options": [
+        {
+          "label": "Home Page",
+          "value": "Home Page",
+          "metadata": {
+            "dos": [
+              "Lead with run, performance, or community — persona-aware.",
+              "Keep sections scannable: headline → subhead → call-to-action.",
+              "Use clear CTAs: Shop, Find Your Shoe, Run Club, or persona-relevant offers.",
+              "End with an aspirational Run Happy or community closing."
+            ],
+            "donts": [
+              "Don’t use furniture, design-house, or Forma Lux language.",
+              "Avoid generic luxury or minimalist design phrasing.",
+              "Don’t over-explain — let running imagery and copy breathe."
+            ],
+            "schema": "landing_page_schema",
+            "context": "Brooks Running (brooksrunning.com) — Run Happy, performance running, and community. Home page for runners and fans; tailor hero and features to the selected persona and their traffic source.",
+            "toneOfVoice": "Energetic, inclusive, performance-focused, Run Happy",
+            "htmlTemplate": "landing_page_template"
+          }
+        }
+      ],
+      "required": false,
+      "description": "Select Home Page to generate persona-based Brooks home page content"
+    },
+    {
+      "key": "audiences",
+      "type": "array",
+      "label": "Target Audiences",
+      "options": [
+        {
+          "label": "Avid Disney Person",
+          "value": "avid-disney",
+          "metadata": {
+            "dos": [
+              "Highlight Disney x Brooks co-branded collection and limited-edition running product.",
+              "Use fun, collectible, fandom-friendly language while staying runner-focused.",
+              "Acknowledge they came from Instagram in hero or CTA where natural."
+            ],
+            "donts": [
+              "Don’t lead with serious performance or race specs only.",
+              "Avoid marathon or Run Club insider jargon.",
+              "Don’t downplay the Disney collaboration."
+            ],
+            "context": "Avid Disney enthusiast and runner who would buy Brooks shoes for Disney co-branded product. Values collectible, limited-edition, and brand crossover; still a runner.",
+            "trafficSource": "Instagram post",
+            "toneOfVoice": "Fun, collectible, runner-forward",
+            "characteristics": "Disney fan, collectible, runner, Instagram"
+          }
+        },
+        {
+          "label": "10K Runner",
+          "value": "10k-runner",
+          "metadata": {
+            "dos": [
+              "Lead with race-ready shoes and Find Your Shoe / shoe finder.",
+              "Highlight performance, fit, and specs relevant to 10k training and racing.",
+              "Acknowledge they came from a marketing email (previous purchase) — welcome back, next pair."
+            ],
+            "donts": [
+              "Don’t over-emphasize Disney or collectibles.",
+              "Avoid marathon-only or beginner-only messaging.",
+              "Don’t be vague about shoe benefits for 10k."
+            ],
+            "context": "10K runner in the market for a new pair of running shoes for an upcoming race. Previously purchased on brooksrunning.com; arrived via marketing email.",
+            "trafficSource": "Marketing email (post-purchase)",
+            "toneOfVoice": "Practical, performance-focused, and helpful",
+            "characteristics": "10K, race, new shoes, runner, email"
+          }
+        },
+        {
+          "label": "Marathon Runner",
+          "value": "marathon-runner",
+          "metadata": {
+            "dos": [
+              "Lead with community, Run Club, marathon, and loyalty.",
+              "Highlight marathon gear, Run Happy, and Strava / Brooks Run Club connection.",
+              "Acknowledge they’re part of Brooks Running Club and Strava run club; regular Brooks emails — insider, family tone."
+            ],
+            "donts": [
+              "Don’t treat them like a first-time visitor.",
+              "Avoid generic “shop now” over community and belonging.",
+              "Don’t underplay marathon or Run Club."
+            ],
+            "context": "Marathon runner and die-hard Brooks fan. Part of Brooks Running Club and Strava run club; receives regular Brooks emails. Values community, performance, and brand loyalty.",
+            "trafficSource": "Brooks Run Club & Strava; regular Brooks emails",
+            "toneOfVoice": "Community, insider, and loyalist",
+            "characteristics": "Marathon, Run Club, loyalist, Strava, runner"
+          }
+        },
+        {
+          "label": "Beginner Runner",
+          "value": "beginner-runner",
+          "metadata": {
+            "dos": [
+              "Lead with comfort, ease, and Find Your Shoe; avoid intimidating race jargon.",
+              "Highlight cushioning, support, and getting started; Run Happy and community.",
+              "Use welcoming, encouraging language for new runners."
+            ],
+            "donts": [
+              "Don’t lead with marathon or race-specific specs.",
+              "Avoid elite or competitive tone.",
+              "Don’t assume they know shoe types or terms."
+            ],
+            "context": "New or returning runner building a habit. Wants comfort, guidance, and a shoe that supports their goals without overwhelm.",
+            "trafficSource": "Organic, paid, or email",
+            "toneOfVoice": "Welcoming, encouraging, and clear",
+            "characteristics": "Beginner, comfort, Find Your Shoe, runner"
+          }
+        },
+        {
+          "label": "Trail / Half Marathon Runner",
+          "value": "trail-half-marathon",
+          "metadata": {
+            "dos": [
+              "Lead with trail or half marathon–ready shoes and versatility.",
+              "Highlight durability, terrain, and race distance (13.1); Run Happy and adventure.",
+              "Bridge road and trail; half marathon training and race day."
+            ],
+            "donts": [
+              "Don’t focus only on Disney or only on full marathon.",
+              "Avoid beginner-only or elite-marathon-only messaging.",
+              "Don’t ignore trail or half marathon specifics."
+            ],
+            "context": "Runner who runs trail and/or targets half marathons. Wants shoes for mixed terrain or 13.1; values versatility and race-ready performance.",
+            "trafficSource": "Organic, email, or Run Club",
+            "toneOfVoice": "Adventurous, versatile, and performance-focused",
+            "characteristics": "Trail, half marathon, versatile, runner"
+          }
+        }
+      ],
+      "required": false,
+      "description": "Select persona(s) for home page variants (Avid Disney, 10K, Marathon, Beginner, Trail/Half)"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "landing_page_schema",
+      "name": "Brooks Home Page Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "HeroHeadline",
+          "HeroSubtext",
+          "Pillar1Title",
+          "Pillar1Paragraph",
+          "Pillar2Title",
+          "Pillar2Paragraph",
+          "Pillar3Title",
+          "Pillar3Paragraph",
+          "Feature1Title",
+          "Feature1Tagline",
+          "Feature1Paragraph",
+          "Feature2Title",
+          "Feature2Tagline",
+          "Feature2Paragraph",
+          "Feature3Title",
+          "Feature3Tagline",
+          "Feature3Paragraph",
+          "ClosingReflection"
+        ],
+        "properties": {
+          "HeroSubtext": {
+            "type": "string",
+            "description": "A short supporting paragraph that sets the tone for the Brooks home page. Communicate Run Happy, performance, or community; tailor to the persona (e.g. Disney, 10k race, Run Club)."
+          },
+          "HeroHeadline": {
+            "type": "string",
+            "description": "The main headline for the Brooks home hero. Should feel energetic and purposeful. Tailor to the persona: e.g. Disney co-brand, race-ready, or Run Club / marathon community."
+          },
+          "Pillar1Title": {
+            "type": "string",
+            "description": "A key Brooks pillar (e.g. performance, fit, Run Happy, community). Reflect running and brand philosophy."
+          },
+          "Pillar2Title": {
+            "type": "string",
+            "description": "Second pillar — e.g. cushioning, support, sustainability, or community."
+          },
+          "Pillar3Title": {
+            "type": "string",
+            "description": "Third pillar — e.g. Run Happy, innovation, or belonging."
+          },
+          "Feature1Title": {
+            "type": "string",
+            "description": "First featured product or experience (e.g. Disney collection, race-ready shoe line, or Run Club highlight). Persona-appropriate; use expressive, concise phrasing."
+          },
+          "Feature2Title": {
+            "type": "string",
+            "description": "Second featured product or experience — complements the first (e.g. another shoe line, collection, or community offer)."
+          },
+          "Feature3Title": {
+            "type": "string",
+            "description": "Third feature — e.g. shoe finder, marathon gear, or limited-edition. Keep consistent with persona."
+          },
+          "Feature1Tagline": {
+            "type": "string",
+            "description": "Short phrase before the first feature title — emotional or benefit-led (e.g. limited edition, race-ready, for the long run)."
+          },
+          "Feature2Tagline": {
+            "type": "string",
+            "description": "Short phrase introducing the second feature — purpose or promise."
+          },
+          "Feature3Tagline": {
+            "type": "string",
+            "description": "Short phrase introducing the third feature — detail or intent."
+          },
+          "Pillar1Paragraph": {
+            "type": "string",
+            "description": "One sentence on the first pillar — performance, fit, or Run Happy in Brooks terms."
+          },
+          "Pillar2Paragraph": {
+            "type": "string",
+            "description": "One sentence on the second pillar — experience runners get (comfort, support, community)."
+          },
+          "Pillar3Paragraph": {
+            "type": "string",
+            "description": "One sentence on the third pillar — Brooks values: Run Happy, innovation, or belonging."
+          },
+          "ClosingReflection": {
+            "type": "string",
+            "description": "A single closing line for Brooks — Run Happy, community, or next step (e.g. Find Your Shoe, Join Run Club)."
+          },
+          "Feature1Paragraph": {
+            "type": "string",
+            "description": "2–3 sentences for the first feature — product or experience, benefit, and why it fits the persona."
+          },
+          "Feature2Paragraph": {
+            "type": "string",
+            "description": "Short paragraph for the second feature — continuity with the first; running and Brooks language."
+          },
+          "Feature3Paragraph": {
+            "type": "string",
+            "description": "Short paragraph for the third feature — finish with a clear next step or Run Happy note."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Brooks Running persona home page structured content"
+    },
+    {
+      "id": "blog_schema",
+      "name": "Blog Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "title",
+          "Introduction",
+          "KeyStatementTitle",
+          "KeyStatementParagraph",
+          "Section1Title",
+          "Section1Paragraph",
+          "Section2Title",
+          "Section2Paragraph",
+          "Section3Title",
+          "Section3Paragraph",
+          "ClosingReflection"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The main headline. Use elegant and evocative language that reflects design, mood, or craftsmanship. Avoid sales phrasing."
+          },
+          "Introduction": {
+            "type": "string",
+            "description": "A 2–3 paragraph opening that sets the visual and emotional tone of the story."
+          },
+          "Section1Title": {
+            "type": "string",
+            "description": "Title of the first supporting section — introduces a design principle or theme."
+          },
+          "Section2Title": {
+            "type": "string",
+            "description": "Second thematic section — focus on material harmony, sustainability, or nature."
+          },
+          "Section3Title": {
+            "type": "string",
+            "description": "Third thematic section — tactile elements, warmth, or finishing details."
+          },
+          "ClosingReflection": {
+            "type": "string",
+            "description": "Short paragraph tying the article back to Forma Lux’s philosophy."
+          },
+          "KeyStatementTitle": {
+            "type": "string",
+            "description": "A short, bold subheadline that acts as a thematic pivot or insight."
+          },
+          "Section1Paragraph": {
+            "type": "string",
+            "description": "A short, sensory description elaborating on the section title."
+          },
+          "Section2Paragraph": {
+            "type": "string",
+            "description": "Describe how materials and craftsmanship create continuity."
+          },
+          "Section3Paragraph": {
+            "type": "string",
+            "description": "Wrap up with material language and emotional closure."
+          },
+          "KeyStatementParagraph": {
+            "type": "string",
+            "description": "One or two paragraphs elaborating on the above statement."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for long-form editorial blog content"
+    },
+    {
+      "id": "email_schema",
+      "name": "Email Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "Subject",
+          "CollectionLabel",
+          "SubjectLine",
+          "GreetingLine",
+          "IntroParagraph",
+          "FeatureTitle",
+          "FeatureBullets",
+          "PrimaryCTA",
+          "SecondaryLink",
+          "ClosingLine",
+          "HeroImage"
+        ],
+        "properties": {
+          "Subject": {
+            "type": "string",
+            "description": "Email subject line."
+          },
+          "HeroImage": {
+            "type": "string",
+            "description": "Image prompt string."
+          },
+          "PrimaryCTA": {
+            "type": "string",
+            "description": "Primary call-to-action label."
+          },
+          "ClosingLine": {
+            "type": "string",
+            "description": "Closing brand line."
+          },
+          "SubjectLine": {
+            "type": "string",
+            "description": "Main email headline."
+          },
+          "FeatureTitle": {
+            "type": "string",
+            "description": "Benefit-led feature headline."
+          },
+          "GreetingLine": {
+            "type": "string",
+            "description": "Personalized greeting line."
+          },
+          "SecondaryLink": {
+            "type": "string",
+            "description": "Optional secondary CTA link text."
+          },
+          "FeatureBullets": {
+            "type": "string",
+            "description": "2–4 concise bullet points."
+          },
+          "IntroParagraph": {
+            "type": "string",
+            "description": "Introductory context paragraph."
+          },
+          "CollectionLabel": {
+            "type": "string",
+            "description": "Uppercase identifier situating the email within a collection."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for branded email communication"
+    },
+    {
+      "id": "linkedin_post_schema",
+      "name": "LinkedIn Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "LaunchLabel",
+          "HeroTitle",
+          "HeroSubtitle",
+          "PrimaryCTA",
+          "DesignPillar1_Title",
+          "DesignPillar1_BoldStatement",
+          "DesignPillar2_Title",
+          "DesignPillar2_BoldStatement",
+          "DesignPillar3_Title",
+          "DesignPillar3_BoldStatement"
+        ],
+        "properties": {
+          "HeroTitle": {
+            "type": "string",
+            "description": "Main headline anchoring the collection."
+          },
+          "PrimaryCTA": {
+            "type": "string",
+            "description": "Primary call-to-action."
+          },
+          "LaunchLabel": {
+            "type": "string",
+            "description": "Uppercase launch label."
+          },
+          "HeroSubtitle": {
+            "type": "string",
+            "description": "Secondary line expressing core message."
+          },
+          "DesignPillar1_Title": {
+            "type": "string",
+            "description": "Design philosophy title."
+          },
+          "DesignPillar2_Title": {
+            "type": "string",
+            "description": "Design philosophy title."
+          },
+          "DesignPillar3_Title": {
+            "type": "string",
+            "description": "Design philosophy title."
+          },
+          "DesignPillar1_BoldStatement": {
+            "type": "string",
+            "description": "Design philosophy tagline."
+          },
+          "DesignPillar2_BoldStatement": {
+            "type": "string",
+            "description": "Design philosophy tagline."
+          },
+          "DesignPillar3_BoldStatement": {
+            "type": "string",
+            "description": "Design philosophy tagline."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for LinkedIn professional content"
+    },
+    {
+      "id": "facebook_post_schema",
+      "name": "Facebook Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "CollectionLabel",
+          "HeroCaptionTitle",
+          "HeroCaptionBody",
+          "DesignHighlight_1",
+          "DesignHighlight_2",
+          "DesignHighlight_3"
+        ],
+        "properties": {
+          "CollectionLabel": {
+            "type": "string",
+            "description": "Uppercase contextual label."
+          },
+          "HeroCaptionBody": {
+            "type": "string",
+            "description": "Supporting caption text."
+          },
+          "HeroCaptionTitle": {
+            "type": "string",
+            "description": "Primary caption headline."
+          },
+          "DesignHighlight_1": {
+            "type": "string",
+            "description": "Design highlight."
+          },
+          "DesignHighlight_2": {
+            "type": "string",
+            "description": "Design highlight."
+          },
+          "DesignHighlight_3": {
+            "type": "string",
+            "description": "Design highlight."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Facebook visual storytelling"
+    },
+    {
+      "id": "twitter_post_schema",
+      "name": "Twitter Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "LaunchLabel",
+          "HeroTitle",
+          "HeroSubtitle",
+          "PrimaryCTA",
+          "DesignPillar1_Title",
+          "DesignPillar1_BoldStatement",
+          "DesignPillar2_Title",
+          "DesignPillar2_BoldStatement",
+          "DesignPillar3_Title",
+          "DesignPillar3_BoldStatement"
+        ],
+        "properties": {
+          "HeroTitle": {
+            "type": "string",
+            "description": "Primary headline."
+          },
+          "PrimaryCTA": {
+            "type": "string",
+            "description": "Primary call-to-action."
+          },
+          "LaunchLabel": {
+            "type": "string",
+            "description": "Uppercase launch label."
+          },
+          "HeroSubtitle": {
+            "type": "string",
+            "description": "Secondary line."
+          },
+          "DesignPillar1_Title": {
+            "type": "string",
+            "description": "Design pillar title."
+          },
+          "DesignPillar2_Title": {
+            "type": "string",
+            "description": "Design pillar title."
+          },
+          "DesignPillar3_Title": {
+            "type": "string",
+            "description": "Design pillar title."
+          },
+          "DesignPillar1_BoldStatement": {
+            "type": "string",
+            "description": "Design pillar statement."
+          },
+          "DesignPillar2_BoldStatement": {
+            "type": "string",
+            "description": "Design pillar statement."
+          },
+          "DesignPillar3_BoldStatement": {
+            "type": "string",
+            "description": "Design pillar statement."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for concise brand expressions on Twitter/X"
+    }
+  ],
+  "htmlTemplates": [
+    {
+      "id": "linkedin_post_template",
+      "name": "LinkedIn Post Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Forma Lux LinkedIn Post</title>\n    <style>\n        /* === RESET & BASE === */\n        *, *::before, *::after {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Arial', sans-serif;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            min-height: 100vh;\n            background: #f0f0f0;\n            padding: 20px;\n        }\n        \n        img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n        }\n        \n        /* === LINKEDIN POST CONTAINER === */\n        .linkedin-post {\n            width: 1200px;\n            height: 1200px;\n            position: relative;\n            overflow: hidden;\n            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #3d3d3d 100%);\n            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);\n        }\n        \n        /* === BACKGROUND ELEMENTS === */\n        .gradient-overlay {\n            position: absolute;\n            inset: 0;\n            background: radial-gradient(circle at top right, rgba(193, 162, 95, 0.3) 0%, transparent 60%),\n                        radial-gradient(circle at bottom left, rgba(193, 162, 95, 0.2) 0%, transparent 50%);\n            z-index: 1;\n        }\n        \n        .deco-circle {\n            position: absolute;\n            border-radius: 50%;\n            background: #023590;\n            opacity: 0.1;\n            z-index: 2;\n        }\n        \n        .deco-circle-1 {\n            width: 400px;\n            height: 400px;\n            top: -100px;\n            right: -100px;\n        }\n        \n        .deco-circle-2 {\n            width: 300px;\n            height: 300px;\n            bottom: -50px;\n            left: -50px;\n        }\n        \n        .accent-line {\n            position: absolute;\n            height: 4px;\n            background: linear-gradient(90deg, transparent, #023590, transparent);\n            width: 80%;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -250px);\n            z-index: 3;\n        }\n        \n        /* === PRODUCT IMAGE === */\n        .product-image-wrapper {\n            position: absolute;\n            bottom: 0;\n            left: 50%;\n            transform: translateX(-50%);\n            width: 100%;\n            height: 50%;\n            z-index: 5;\n        }\n        \n        .product-image {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            object-position: center top;\n            opacity: 0.4;\n            mix-blend-mode: luminosity;\n        }\n        \n        /* === LOGO SECTION === */\n        .logo-section {\n            position: absolute;\n            top: 60px;\n            left: 60px;\n            z-index: 10;\n        }\n        \n        .logo {\n            font-size: 32px;\n            font-weight: 700;\n            color: white;\n            letter-spacing: 4px;\n            margin-bottom: 5px;\n        }\n        \n        .tagline {\n            font-size: 14px;\n            color: #023590;\n            letter-spacing: 2px;\n            text-transform: uppercase;\n        }\n        \n        /* === CORNER BADGE === */\n        .corner-badge {\n            position: absolute;\n            top: 60px;\n            right: 60px;\n            background: #023590;\n            color: white;\n            padding: 15px 30px;\n            font-size: 16px;\n            font-weight: 700;\n            letter-spacing: 2px;\n            text-transform: uppercase;\n            border-radius: 4px;\n            z-index: 10;\n        }\n        \n        /* === MAIN CONTENT === */\n        .content-wrapper {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n            text-align: center;\n            width: 90%;\n            z-index: 10;\n        }\n        \n        .eyebrow {\n            font-size: 18px;\n            color: #023590;\n            letter-spacing: 3px;\n            text-transform: uppercase;\n            margin-bottom: 30px;\n            font-weight: 600;\n        }\n        \n        .main-headline {\n            font-size: 82px;\n            font-weight: 700;\n            color: white;\n            line-height: 1.1;\n            margin-bottom: 20px;\n            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);\n        }\n        \n        .highlight {\n            background: #023590;\n            color: white;\n            padding: 8px 24px;\n            display: inline-block;\n            margin: 0 10px;\n        }\n        \n        .subheadline {\n            font-size: 28px;\n            color: #e0e0e0;\n            margin: 0 auto 50px;\n            line-height: 1.5;\n            max-width: 900px;\n        }\n        \n        /* === FEATURE BOXES === */\n        .feature-boxes {\n            position: absolute;\n            bottom: 80px;\n            left: 50%;\n            transform: translateX(-50%);\n            display: flex;\n            gap: 30px;\n            z-index: 10;\n        }\n        \n        .feature-box {\n            background: rgba(255, 255, 255, 0.1);\n            backdrop-filter: blur(10px);\n            border: 1px solid rgba(193, 162, 95, 0.3);\n            padding: 25px 35px;\n            border-radius: 8px;\n            text-align: center;\n        }\n        \n        .feature-icon {\n            font-size: 32px;\n            margin-bottom: 12px;\n        }\n        \n        .feature-title {\n            font-size: 18px;\n            font-weight: 700;\n            color: white;\n            margin-bottom: 8px;\n        }\n        \n        .feature-text {\n            font-size: 14px;\n            color: #d0d0d0;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"linkedin-post\">\n        <!-- Background Elements -->\n        <div class=\"gradient-overlay\"></div>\n        <div class=\"deco-circle deco-circle-1\"></div>\n        <div class=\"deco-circle deco-circle-2\"></div>\n        <div class=\"accent-line\"></div>\n        \n        <!-- Logo -->\n        <div class=\"logo-section\">\n            <div class=\"logo\">FORMA LUX</div>\n            <div class=\"tagline\">Furniture Reimagined</div>\n        </div>\n        \n        <!-- Corner Badge -->\n        <div class=\"corner-badge\">New Collection</div>\n        \n        <!-- Main Content -->\n        <div class=\"content-wrapper\">\n            <div class=\"eyebrow\">{{LaunchLabel}}</div>\n            <h1 class=\"main-headline\">{{HeroTitle}}</h1>\n            <p class=\"subheadline\">{{HeroSubtitle}}</p>\n        </div>\n        \n        <!-- Product Image Background -->\n        <div class=\"product-image-wrapper\">\n            <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{HeroTitle}}\" alt=\"{{HeroTitle}}\" class=\"product-image\">\n        </div>\n        \n        <!-- Feature Boxes -->\n        <div class=\"feature-boxes\">\n            <div class=\"feature-box\">\n                <div class=\"feature-title\">{{DesignPillar1_Title}}</div>\n                <div class=\"feature-text\">{{DesignPillar1_BoldStatement}}</div>\n            </div>\n            <div class=\"feature-box\">\n                <div class=\"feature-title\">{{DesignPillar2_Title}}</div>\n                <div class=\"feature-text\">{{DesignPillar2_BoldStatement}}</div>\n            </div>\n            <div class=\"feature-box\">\n                <div class=\"feature-title\">{{DesignPillar3_Title}}</div>\n                <div class=\"feature-text\">{{DesignPillar3_BoldStatement}}</div>\n            </div>\n        </div>\n    </div>\n</body>\n</html>"
+    },
+    {
+      "id": "twitter_post_template",
+      "name": "Twitter/X Post Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Forma Lux Twitter Post</title>\n    <style>\n        /* === RESET & BASE === */\n        *, *::before, *::after {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            min-height: 100vh;\n            background: #15202b;\n            padding: 20px;\n        }\n        \n        img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n        }\n        \n        a {\n            text-decoration: none;\n        }\n        \n        /* === TWITTER POST CONTAINER === */\n        .twitter-post {\n            width: 1200px;\n            height: 675px;\n            position: relative;\n            overflow: hidden;\n            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);\n            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);\n        }\n        \n        /* === BACKGROUND === */\n        .product-bg {\n            position: absolute;\n            right: 0;\n            top: 0;\n            width: 60%;\n            height: 100%;\n            z-index: 1;\n        }\n        \n        .product-bg img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            object-position: center;\n        }\n        \n        .bg-overlay {\n            position: absolute;\n            inset: 0;\n            background: linear-gradient(90deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.85) 40%, rgba(26, 26, 26, 0.3) 100%);\n            z-index: 2;\n        }\n        \n        .accent-bar {\n            position: absolute;\n            width: 4px;\n            height: 120px;\n            background: #023590;\n            left: 80px;\n            top: 50%;\n            transform: translateY(-50%);\n            opacity: 0.5;\n            z-index: 5;\n        }\n        \n        /* === CONTENT === */\n        .content {\n            position: relative;\n            z-index: 10;\n            padding: 60px 80px;\n            height: 100%;\n            display: flex;\n            flex-direction: column;\n            justify-content: space-between;\n        }\n        \n        /* === TOP SECTION === */\n        .top-section {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-start;\n        }\n        \n        .logo {\n            font-size: 28px;\n            font-weight: 700;\n            color: white;\n            letter-spacing: 4px;\n        }\n        \n        .badge {\n            background: #023590;\n            color: white;\n            padding: 8px 20px;\n            font-size: 12px;\n            font-weight: 700;\n            letter-spacing: 2px;\n            text-transform: uppercase;\n            border-radius: 20px;\n        }\n        \n        /* === MAIN CONTENT === */\n        .main-content {\n            max-width: 650px;\n        }\n        \n        .eyebrow {\n            font-size: 14px;\n            color: #023590;\n            letter-spacing: 3px;\n            text-transform: uppercase;\n            margin-bottom: 20px;\n            font-weight: 600;\n        }\n        \n        .headline {\n            font-size: 64px;\n            font-weight: 700;\n            color: white;\n            line-height: 1.1;\n            margin-bottom: 25px;\n        }\n        \n        .highlight {\n            color: #023590;\n        }\n        \n        .description {\n            font-size: 20px;\n            color: #d0d0d0;\n            line-height: 1.5;\n            margin-bottom: 30px;\n        }\n        \n        /* === FEATURES === */\n        .features {\n            display: flex;\n            gap: 40px;\n        }\n        \n        .feature {\n            display: flex;\n            align-items: center;\n            gap: 12px;\n        }\n        \n        .feature-icon {\n            font-size: 24px;\n        }\n        \n        .feature-text {\n            font-size: 14px;\n            color: white;\n            font-weight: 600;\n            text-transform: uppercase;\n            letter-spacing: 1px;\n        }\n        \n        /* === BOTTOM SECTION === */\n        .bottom-section {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-end;\n        }\n        \n        .cta {\n            display: inline-flex;\n            align-items: center;\n            gap: 10px;\n            color: #023590;\n            font-size: 16px;\n            font-weight: 700;\n            border-bottom: 2px solid #023590;\n            padding-bottom: 5px;\n        }\n        \n        .arrow {\n            font-size: 20px;\n        }\n        \n        .hashtags {\n            font-size: 13px;\n            color: #023590;\n            letter-spacing: 1px;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"twitter-post\">\n        <!-- Background -->\n        <div class=\"product-bg\">\n            <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{HeroTitle}}\" alt=\"{{HeroTitle}}\">\n        </div>\n        <div class=\"bg-overlay\"></div>\n        <div class=\"accent-bar\"></div>\n        \n        <!-- Content -->\n        <div class=\"content\">\n            <!-- Top -->\n            <div class=\"top-section\">\n                <div class=\"logo\">FORMA LUX</div>\n                <div class=\"badge\">New Launch</div>\n            </div>\n            \n            <!-- Main -->\n            <div class=\"main-content\">\n                <div class=\"eyebrow\">{{LaunchLabel}}</div>\n                <h1 class=\"headline\">{{HeroTitle}}</h1>\n                <p class=\"description\">{{HeroSubtitle}}</p>\n                \n                <div class=\"features\">\n                    <div class=\"feature\">\n                        <span class=\"feature-text\">{{DesignPillar1_Title}}</span>\n                    </div>\n                    <div class=\"feature\">\n                        <span class=\"feature-text\">{{DesignPillar2_Title}}</span>\n                    </div>\n                    <div class=\"feature\">\n                        <span class=\"feature-text\">{{DesignPillar3_Title}}</span>\n                    </div>\n                </div>\n            </div>\n            \n            <!-- Bottom -->\n            <div class=\"bottom-section\">\n                <a href=\"#\" class=\"cta\">\n                    <span>Explore Collection</span>\n                    <span class=\"arrow\">→</span>\n                </a>\n                <div class=\"hashtags\">#SustainableDesign #FurnitureDesign</div>\n            </div>\n        </div>\n    </div>\n</body>\n</html>"
+    },
+    {
+      "id": "instagram_post_template",
+      "name": "Instagram Post Template",
+      "template": "<div class=\"instagram-post\">\n  <div class=\"image-placeholder\">📷 {{image_description}}</div>\n  <div class=\"caption\">{{caption}}</div>\n  <div class=\"hashtags\">{{#each hashtags}}<span class=\"hashtag\">#{{this}}</span> {{/each}}</div>\n  {{#if call_to_action}}<div class=\"cta\">{{call_to_action}}</div>{{/if}}\n</div>"
+    },
+    {
+      "id": "facebook_post_template",
+      "name": "Facebook Post Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Forma Lux Facebook Post</title>\n    <style>\n        /* === RESET & BASE === */\n        *, *::before, *::after {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            min-height: 100vh;\n            background: #18191a;\n            padding: 20px;\n        }\n        \n        img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n        }\n        \n        a {\n            text-decoration: none;\n        }\n        \n        /* === FACEBOOK POST CONTAINER === */\n        .facebook-post {\n            width: 1200px;\n            height: 630px;\n            position: relative;\n            overflow: hidden;\n            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);\n        }\n        \n        .grid-container {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            height: 100%;\n        }\n        \n        /* === LEFT CONTENT SECTION === */\n        .content-section {\n            padding: 70px 60px;\n            display: flex;\n            flex-direction: column;\n            justify-content: space-between;\n            background: white;\n            position: relative;\n        }\n        \n        .accent-shape {\n            position: absolute;\n            width: 150px;\n            height: 150px;\n            background: #023590;\n            opacity: 0.1;\n            border-radius: 50%;\n            top: -50px;\n            right: -50px;\n        }\n        \n        /* === HEADER === */\n        .header {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-start;\n            margin-bottom: 30px;\n        }\n        \n        .logo {\n            font-size: 28px;\n            font-weight: 700;\n            color: #1a1a1a;\n            letter-spacing: 4px;\n        }\n        \n        .new-badge {\n            background: #023590;\n            color: white;\n            padding: 8px 18px;\n            font-size: 11px;\n            font-weight: 700;\n            letter-spacing: 2px;\n            text-transform: uppercase;\n            border-radius: 20px;\n        }\n        \n        /* === MAIN CONTENT === */\n        .main-content {\n            flex: 1;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n        }\n        \n        .eyebrow {\n            color: #023590;\n            font-size: 14px;\n            font-weight: 700;\n            letter-spacing: 3px;\n            text-transform: uppercase;\n            margin-bottom: 20px;\n        }\n        \n        .headline {\n            font-size: 56px;\n            font-weight: 700;\n            color: #1a1a1a;\n            line-height: 1.1;\n            margin-bottom: 25px;\n        }\n        \n        .accent-word {\n            color: #023590;\n        }\n        \n        .description {\n            font-size: 18px;\n            color: #666;\n            line-height: 1.6;\n            margin-bottom: 35px;\n            max-width: 450px;\n        }\n        \n        /* === FEATURES LIST === */\n        .features-list {\n            display: flex;\n            flex-direction: column;\n            gap: 15px;\n            margin-bottom: 30px;\n        }\n        \n        .feature-item {\n            display: flex;\n            align-items: center;\n            gap: 12px;\n        }\n        \n        .check-icon {\n            width: 24px;\n            height: 24px;\n            background: #023590;\n            border-radius: 50%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            color: white;\n            font-size: 14px;\n            font-weight: 700;\n            flex-shrink: 0;\n        }\n        \n        .feature-text {\n            font-size: 16px;\n            color: #333;\n            font-weight: 500;\n        }\n        \n        /* === CTA BUTTON === */\n        .cta-button {\n            display: inline-block;\n            background: #023590;\n            color: white;\n            padding: 16px 40px;\n            font-size: 15px;\n            font-weight: 700;\n            letter-spacing: 1px;\n            text-transform: uppercase;\n            border-radius: 6px;\n            text-align: center;\n            transition: all 0.3s;\n            width: fit-content;\n        }\n        \n        .cta-button:hover {\n            background: #022a6e;\n            transform: translateY(-2px);\n            box-shadow: 0 8px 20px rgba(193, 162, 95, 0.3);\n        }\n        \n        /* === RIGHT IMAGE SECTION === */\n        .image-section {\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .main-image {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n        \n        /* === STATS OVERLAY === */\n        .stats-overlay {\n            position: absolute;\n            bottom: 40px;\n            left: 40px;\n            right: 40px;\n            display: flex;\n            gap: 20px;\n        }\n        \n        .stat-card {\n            flex: 1;\n            background: rgba(255, 255, 255, 0.95);\n            backdrop-filter: blur(10px);\n            padding: 20px;\n            border-radius: 12px;\n            text-align: center;\n            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n        }\n        \n        .stat-number {\n            font-size: 32px;\n            font-weight: 700;\n            color: #023590;\n            margin-bottom: 5px;\n        }\n        \n        .stat-label {\n            font-size: 12px;\n            color: #666;\n            text-transform: uppercase;\n            letter-spacing: 1px;\n            font-weight: 600;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"facebook-post\">\n        <div class=\"grid-container\">\n            <!-- Left Content -->\n            <div class=\"content-section\">\n                <div class=\"accent-shape\"></div>\n                \n                <div class=\"header\">\n                    <div class=\"logo\">FORMA LUX</div>\n                    <div class=\"new-badge\">New Launch</div>\n                </div>\n                \n                <div class=\"main-content\">\n                    <div class=\"eyebrow\">{{CollectionLabel}}</div>\n                    \n                    <h1 class=\"headline\">{{HeroCaptionTitle}}</h1>\n                    \n                    <p class=\"description\">{{HeroCaptionBody}}</p>\n                    \n                    <div class=\"features-list\">\n                        <div class=\"feature-item\">\n                            <div class=\"check-icon\">✓</div>\n                            <div class=\"feature-text\">{{DesignHighlight_1}}</div>\n                        </div>\n                        <div class=\"feature-item\">\n                            <div class=\"check-icon\">✓</div>\n                            <div class=\"feature-text\">{{DesignHighlight_2}}</div>\n                        </div>\n                        <div class=\"feature-item\">\n                            <div class=\"check-icon\">✓</div>\n                            <div class=\"feature-text\">{{DesignHighlight_3}}</div>\n                        </div>\n                    </div>\n                </div>\n                \n                <a href=\"#\" class=\"cta-button\">Explore The Collection</a>\n            </div>\n            \n            <!-- Right Image -->\n            <div class=\"image-section\">\n                <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{HeroCaptionTitle}}\" alt=\"{{HeroCaptionTitle}}\" class=\"main-image\">\n            </div>\n        </div>\n    </div>\n</body>\n</html>"
+    },
+    {
+      "id": "email_content_template",
+      "name": "Email Content Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n    <meta charset=\"utf-8\">\n    <title>Still imagining The Lumina Sofa?</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap\" rel=\"stylesheet\">\n    \n    <style>\n        /* === EMAIL CLIENT RESETS === */\n        html, body {\n            margin: 0 !important;\n            padding: 0 !important;\n            height: 100% !important;\n            width: 100% !important;\n        }\n        \n        * {\n            -ms-text-size-adjust: 100%;\n            -webkit-text-size-adjust: 100%;\n        }\n        \n        table, td {\n            mso-table-lspace: 0pt;\n            mso-table-rspace: 0pt;\n            border-collapse: separate;\n        }\n        \n        img {\n            -ms-interpolation-mode: bicubic;\n            border: 0;\n            outline: none;\n            text-decoration: none;\n            display: block;\n        }\n        \n        a {\n            text-decoration: none;\n        }\n        \n        /* === BASE STYLES === */\n        body {\n            background: #F6F5F1;\n        }\n        \n        .font {\n            font-family: 'Manrope', Arial, Helvetica, sans-serif;\n            color: #1C1C1C;\n        }\n        \n        .muted {\n            color: rgba(28, 28, 28, 0.72);\n        }\n        \n        /* === TYPOGRAPHY === */\n        .eyebrow {\n            letter-spacing: 0.12em;\n            text-transform: uppercase;\n            font-size: 12px;\n            color: rgba(28, 28, 28, 0.6);\n        }\n        \n        .h1 {\n            font-size: 28px;\n            line-height: 1.25;\n            font-weight: 800;\n            margin: 0;\n        }\n        \n        .h2 {\n            font-size: 18px;\n            line-height: 1.45;\n            font-weight: 700;\n            margin: 0;\n        }\n        \n        .body {\n            font-size: 16px;\n            line-height: 1.65;\n            margin: 0;\n        }\n        \n        .small {\n            font-size: 12px;\n            line-height: 1.6;\n        }\n        \n        /* === COMPONENTS === */\n        .card {\n            background: #FFF;\n            border-radius: 16px;\n            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);\n        }\n        \n        .btn {\n            background: #B89A5B;\n            color: #FFF;\n            font-weight: 800;\n            font-size: 16px;\n            padding: 14px 24px;\n            border-radius: 12px;\n            display: inline-block;\n        }\n        \n        .btn:hover {\n            background: #A3864F !important;\n        }\n        \n        .btn-ghost {\n            color: #1C1C1C;\n            font-weight: 700;\n            font-size: 16px;\n        }\n        \n        .divider {\n            height: 1px;\n            line-height: 1px;\n            background: rgba(28, 28, 28, 0.08);\n        }\n        \n        .center {\n            margin: 0 auto;\n            text-align: center;\n        }\n        \n        /* === RESPONSIVE === */\n        @media screen and (max-width: 640px) {\n            .h1 {\n                font-size: 24px !important;\n            }\n            \n            .body {\n                font-size: 15px !important;\n            }\n            \n            .btn {\n                width: 100% !important;\n                text-align: center !important;\n            }\n        }\n    </style>\n</head>\n<body class=\"font\">\n    <!-- Preheader -->\n    <div style=\"display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#F6F5F1;mso-hide:all;\">\n        Pick up where you left off—your Lumina selections are just a click away.\n    </div>\n    \n    <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\">\n        <tr>\n            <td align=\"center\" style=\"padding:32px 0 0;\">\n                <!-- Logo -->\n                <a href=\"https://formalux.dev/?utm_source=email&utm_medium=retargeting&utm_campaign=lumina\" target=\"_blank\" class=\"font\">\n                    <img src=\"https://starter-verticals.sitecoresandbox.cloud/api/public/content/14088da5e4fe42399a187c592774014f?v=c7b982cd\" width=\"160\" height=\"38\" alt=\"Forma Lux\" style=\"height:auto;display:block;margin:0 auto;\">\n                </a>\n            </td>\n        </tr>\n        \n        <tr>\n            <td align=\"center\" style=\"padding:24px;\">\n                <!-- Main Card -->\n                <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"600\" class=\"card\" style=\"max-width:600px;\">\n                    <tr>\n                        <td class=\"font\" style=\"padding:28px 28px 0;\">\n                            <div class=\"eyebrow\" style=\"margin-bottom:10px;\">{{CollectionLabel}}</div>\n                            <h1 class=\"h1\" style=\"margin-bottom:12px;\">{{SubjectLine}}</h1>\n                            <p class=\"body muted\" style=\"margin-top:10px;\">\n                                {{GreetingLine}}\n                                {{IntroParagraph}}\n                            </p>\n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td align=\"center\" style=\"padding:24px;\">\n                            <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{HeroImage}}\" width=\"544\" height=\"304\" alt=\"The Lumina Sofa\" style=\"width:100%;max-width:544px;height:auto;border-radius:14px;\">\n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td class=\"font\" style=\"padding:0 32px 16px;\">\n                            <div class=\"h2\" style=\"margin-bottom:6px;\">{{FeatureTitle}}</div>\n                            {{FeatureBullets}}\n                        </td>\n                    </tr>\n                    \n                    <!-- Primary CTA -->\n                    <tr>\n                        <td align=\"center\" style=\"padding:24px 24px 0;\">\n                            <a href=\"https://formalux.dev/?utm_campaign=lumina&utm_medium=email&utm_source=retargeting#resume\" class=\"btn font\" target=\"_blank\">\n                                {{PrimaryCTA}}\n                            </a>\n                        </td>\n                    </tr>\n                    \n                    <!-- Divider -->\n                    <tr>\n                        <td style=\"padding-top:24px;\">\n                            <div class=\"divider\" style=\"margin:0 auto;width:80%;\"></div>\n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td style=\"height:24px;line-height:24px;\">&nbsp;</td>\n                    </tr>\n                    \n                    <!-- Secondary CTA -->\n                    <tr>\n                        <td align=\"center\" style=\"padding-bottom:32px;\">\n                            <a href=\"https://formalux.dev/Landing-Pages/The-Lumina-Collection?utm_campaign=lumina&utm_medium=email&utm_source=retargeting\" class=\"btn-ghost font\" target=\"_blank\" style=\"text-decoration:underline;\">\n                                {{SecondaryLink}}\n                            </a>\n                        </td>\n                    </tr>\n                </table>\n            </td>\n        </tr>\n        \n        <!-- Footer -->\n        <tr>\n            <td align=\"center\" class=\"font\" style=\"padding:40px 24px 48px;\">\n                <p class=\"small muted\" style=\"margin:0 0 10px;\">\n                    You're receiving this because you visited Forma Lux and showed interest in The Lumina Sofa.\n                </p>\n                <p class=\"small muted\" style=\"margin:0 0 12px;\">\n                    <a href=\"#\" target=\"_blank\" class=\"font\" style=\"color:#1C1C1C;text-decoration:underline;\">Manage preferences</a>\n                    &nbsp;|&nbsp;\n                    <a href=\"#\" target=\"_blank\" class=\"font\" style=\"color:#1C1C1C;text-decoration:underline;\">Unsubscribe</a>\n                </p>\n                <p class=\"small muted\" style=\"margin:0;\">\n                    © 2025 Forma Lux • 123 Design Way, Orlando, FL 32801\n                </p>\n            </td>\n        </tr>\n    </table>\n</body>\n</html>"
+    },
+    {
+      "id": "blog_post_template",
+      "name": "Blog Post Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>{{title}}</title>\n    <style>\n        /* === RESET & BASE === */\n        *, *::before, *::after {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n            line-height: 1.6;\n            color: #333;\n        }\n        \n        img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n        }\n        \n        button {\n            background: transparent;\n            border: none;\n            cursor: pointer;\n            padding: 0;\n        }\n        \n        /* === LAYOUT === */\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 20px;\n        }\n        \n        /* === SOCIAL SHARE === */\n        .social-share {\n            display: flex;\n            gap: 12px;\n            padding: 20px;\n            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n            margin: 20px 0;\n            flex-wrap: wrap;\n        }\n        \n        .social-share svg {\n            width: 40px;\n            height: 40px;\n        }\n        \n        /* === HERO IMAGE === */\n        .hero-image {\n            width: 100%;\n            aspect-ratio: 16/9;\n            overflow: hidden;\n            border-radius: 8px;\n            margin: 30px 0;\n        }\n        \n        .hero-image img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n        \n        /* === ARTICLE CONTENT === */\n        .article-content {\n            max-width: 800px;\n            margin: 40px auto;\n        }\n        \n        h2 {\n            font-size: 2.5rem;\n            margin-bottom: 20px;\n            font-weight: 700;\n        }\n        \n        .intro-text {\n            font-size: 1.125rem;\n            color: #666;\n            margin: 20px 0;\n            font-weight: 500;\n            line-height: 1.8;\n        }\n        \n        /* === CONTENT SECTION === */\n        .content-section {\n            margin-top: 40px;\n            font-size: 1.125rem;\n            line-height: 1.8;\n        }\n        \n        .content-section figure {\n            float: right;\n            width: 42%;\n            margin: 0 0 20px 20px;\n        }\n        \n        .content-section figure img {\n            width: 100%;\n            height: auto;\n            border-radius: 8px;\n        }\n        \n        .content-section h3 {\n            font-size: 1.75rem;\n            margin: 20px 0 15px 0;\n            font-weight: 600;\n        }\n        \n        .content-section p {\n            margin-bottom: 20px;\n        }\n        \n        /* === GRID SECTION === */\n        .grid-section {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 48px;\n            margin: 60px 0;\n        }\n        \n        .grid-item {\n            display: flex;\n            flex-direction: column;\n        }\n        \n        .grid-item-image {\n            width: 100%;\n            aspect-ratio: 4/3;\n            overflow: hidden;\n            border-radius: 8px;\n            margin-bottom: 28px;\n            background: #f5f5f5;\n        }\n        \n        .grid-item-image img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n        \n        .grid-item h6 {\n            font-size: 1.25rem;\n            margin-bottom: 8px;\n            font-weight: 600;\n        }\n        \n        .grid-item p {\n            font-size: 1.125rem;\n            color: #666;\n            line-height: 1.7;\n        }\n        \n        /* === RESPONSIVE === */\n        @media (max-width: 768px) {\n            h2 {\n                font-size: 2rem;\n            }\n            \n            .content-section figure {\n                float: none;\n                width: 100%;\n                margin: 20px 0;\n            }\n            \n            .grid-section {\n                grid-template-columns: 1fr;\n                gap: 40px;\n            }\n            \n            .social-share {\n                justify-content: center;\n            }\n        }\n    </style>\n</head>\n<body>\n    <article class=\"container\">\n        <!-- Social Share -->\n        <div class=\"social-share\">\n            <button aria-label=\"Share on Facebook\">\n                <svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n                    <rect width=\"64\" height=\"64\" rx=\"0\" ry=\"0\" fill=\"#0965FE\"/>\n                    <path d=\"M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z\" fill=\"white\"/>\n                </svg>\n            </button>\n            <button aria-label=\"Share on Twitter\">\n                <svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n                    <rect width=\"64\" height=\"64\" rx=\"0\" ry=\"0\" fill=\"#00aced\"/>\n                    <path d=\"M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z\" fill=\"white\"/>\n                </svg>\n            </button>\n            <button aria-label=\"Share on LinkedIn\">\n                <svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n                    <rect width=\"64\" height=\"64\" rx=\"0\" ry=\"0\" fill=\"#0077B5\"/>\n                    <path d=\"M20.4,44h5.4V26.6h-5.4V44z M23.1,18c-1.7,0-3.1,1.4-3.1,3.1c0,1.7,1.4,3.1,3.1,3.1 c1.7,0,3.1-1.4,3.1-3.1C26.2,19.4,24.8,18,23.1,18z M39.5,26.2c-2.6,0-4.4,1.4-5.1,2.8h-0.1v-2.4h-5.2V44h5.4v-8.6 c0-2.3,0.4-4.5,3.2-4.5c2.8,0,2.8,2.6,2.8,4.6V44H46v-9.5C46,29.8,45,26.2,39.5,26.2z\" fill=\"white\"/>\n                </svg>\n            </button>\n            <button aria-label=\"Share on Pinterest\">\n                <svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n                    <rect width=\"64\" height=\"64\" rx=\"0\" ry=\"0\" fill=\"#E60023\"/>\n                    <path d=\"M32,16c-8.8,0-16,7.2-16,16c0,6.6,3.9,12.2,9.6,14.7c0-1.1,0-2.5,0.3-3.7 c0.3-1.3,2.1-8.7,2.1-8.7s-0.5-1-0.5-2.5c0-2.4,1.4-4.1,3.1-4.1c1.5,0,2.2,1.1,2.2,2.4c0,1.5-0.9,3.7-1.4,5.7 c-0.4,1.7,0.9,3.1,2.5,3.1c3,0,5.1-3.9,5.1-8.5c0-3.5-2.4-6.1-6.7-6.1c-4.9,0-7.9,3.6-7.9,7.7c0,1.4,0.4,2.4,1.1,3.1 c0.3,0.3,0.3,0.5,0.2,0.9c-0.1,0.3-0.3,1-0.3,1.3c-0.1,0.4-0.4,0.6-0.8,0.4c-2.2-0.9-3.3-3.4-3.3-6.1c0-4.5,3.8-10,11.4-10 c6.1,0,10.1,4.4,10.1,9.2c0,6.3-3.5,11-8.6,11c-1.7,0-3.4-0.9-3.9-2c0,0-0.9,3.7-1.1,4.4c-0.3,1.2-1,2.5-1.6,3.4 c1.4,0.4,3,0.7,4.5,0.7c8.8,0,16-7.2,16-16C48,23.2,40.8,16,32,16z\" fill=\"white\"/>\n                </svg>\n            </button>\n            <button aria-label=\"Share via Email\">\n                <svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n                    <rect width=\"64\" height=\"64\" rx=\"0\" ry=\"0\" fill=\"#7f7f7f\"/>\n                    <path d=\"M17,22v20h30V22H17z M41.1,25L32,32.1L22.9,25H41.1z M20,39V26.6l12,9.3l12-9.3V39H20z\" fill=\"white\"/>\n                </svg>\n            </button>\n        </div>\n        \n        <!-- Hero Image -->\n        <div class=\"hero-image\">\n            <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{title}}\" alt=\"{{title}}\" loading=\"lazy\">\n        </div>\n        \n        <!-- Article Content -->\n        <div class=\"article-content\">\n            <h2>{{title}}</h2>\n            \n            <p class=\"intro-text\">{{Introduction}}</p>\n            \n            <div class=\"content-section\">\n                <figure>\n                    <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{KeyStatementTitle}}\" alt=\"{{KeyStatementTitle}}\">\n                </figure>\n                \n                <h3>{{KeyStatementTitle}}</h3>\n                \n                <p>{{KeyStatementParagraph}}</p>\n            </div>\n        </div>\n        \n        <!-- Grid Section -->\n        <section class=\"grid-section\">\n            <div class=\"grid-item\">\n                <div class=\"grid-item-image\">\n                    <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{Section1Title}}\" alt=\"{{Section1Title}}\">\n                </div>\n                <h6>{{Section1Title}}</h6>\n                <p>{{Section1Paragraph}}</p>\n            </div>\n            \n            <div class=\"grid-item\">\n                <div class=\"grid-item-image\">\n                    <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{Section2Title}}\" alt=\"{{Section2Title}}\">\n                </div>\n                <h6>{{Section2Title}}</h6>\n                <p>{{Section2Paragraph}}</p>\n            </div>\n            \n            <div class=\"grid-item\">\n                <div class=\"grid-item-image\">\n                    <img src=\"https://v0-furniture-image-generator-silk.vercel.app/api/generate-image?query={{Section3Title}}\" alt=\"{{Section3Title}}\">\n                </div>\n                <h6>{{Section3Title}}</h6>\n                <p>{{Section3Paragraph}}</p>\n            </div>\n        </section>\n    </article>\n</body>\n</html>"
+    },
+    {
+      "id": "landing_page_template",
+      "name": "Brooks Home Page Template",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Brooks Running - Run Happy</title>\n    <link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap\" rel=\"stylesheet\">\n    <style>\n        /* === RESET & BASE (match existing home page) === */\n        *, *::before, *::after {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;\n            line-height: 1.6;\n            color: #1a1a1a;\n        }\n        \n        img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n        }\n        \n        a {\n            text-decoration: none;\n            color: inherit;\n        }\n        \n        /* === LAYOUT === */\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 20px;\n        }\n        \n        section {\n            padding: 80px 0;\n        }\n        \n        /* === SHARED COMPONENTS === */\n        .accent-underline {\n            display: block;\n            width: 9ch;\n            height: 20px;\n            margin: 10px auto;\n            color: #023590;\n        }\n        \n        .eyebrow {\n            text-transform: uppercase;\n            letter-spacing: 2px;\n            font-size: 0.875rem;\n            color: #023590;\n            margin-bottom: 20px;\n            font-weight: 600;\n        }\n        \n        .arrow-icon {\n            width: 48px;\n            height: 13px;\n        }\n        \n        .arrow-btn {\n            color: #023590;\n            font-weight: 500;\n            display: inline-block;\n            transition: opacity 0.3s;\n        }\n        \n        .arrow-btn:hover {\n            text-decoration: underline;\n        }\n        \n        /* === HERO BANNER === */\n        .hero-banner {\n            position: relative;\n            min-height: 600px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            overflow: hidden;\n            color: white;\n            padding: 0;\n        }\n        \n        .hero-banner video {\n            position: absolute;\n            inset: 0;\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n        \n        .hero-overlay {\n            position: absolute;\n            inset: 0;\n            background: linear-gradient(to bottom, transparent 85%, white);\n            z-index: 1;\n        }\n        \n        .hero-content {\n            position: relative;\n            z-index: 2;\n            text-align: center;\n            padding: 80px 20px;\n        }\n        \n        .hero-banner h1 {\n            font-size: 4rem;\n            font-weight: 700;\n            line-height: 1.1;\n            margin-bottom: 20px;\n        }\n        \n        .hero-subtitle {\n            font-size: 1.5rem;\n            margin: 28px 0;\n        }\n        \n        .hero-cta {\n            display: inline-flex;\n            align-items: center;\n            gap: 14px;\n            color: #023590;\n            border-bottom: 1px solid #023590;\n            padding-bottom: 8px;\n            margin-top: 24px;\n            font-size: 1rem;\n            transition: opacity 0.3s;\n        }\n        \n        .hero-cta:hover {\n            opacity: 0.8;\n        }\n        \n        /* === FEATURES SECTION === */\n        .features-grid {\n            display: grid;\n            grid-template-columns: 1fr;\n            gap: 40px;\n        }\n        \n        .features-header h2 {\n            font-size: 2.625rem;\n            font-weight: 700;\n            max-width: 500px;\n            line-height: 1.2;\n            margin-bottom: 80px;\n        }\n        \n        .features-items {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 64px;\n        }\n        \n        .feature-item h3 {\n            font-size: 1.5rem;\n            font-weight: 700;\n            margin-bottom: 20px;\n        }\n        \n        .feature-item p {\n            color: #666;\n            line-height: 1.8;\n            margin-bottom: 20px;\n        }\n        \n        /* === PRODUCT SECTIONS === */\n        .product-section.alt-bg {\n            background-color: #f9f9f9;\n        }\n        \n        .product-grid {\n            display: grid;\n            grid-template-columns: 1fr;\n            gap: 40px;\n            align-items: center;\n        }\n        \n        .product-image {\n            width: 100%;\n            aspect-ratio: 4/3;\n            overflow: hidden;\n            border-radius: 16px;\n            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);\n        }\n        \n        .product-image img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n        \n        .product-content h2 {\n            font-size: 2.5rem;\n            margin-bottom: 20px;\n            font-weight: 700;\n        }\n        \n        .product-content p {\n            font-size: 1.125rem;\n            line-height: 1.8;\n            color: #666;\n            margin-bottom: 30px;\n            max-width: 600px;\n        }\n        \n        /* === CTA SECTION === */\n        .cta-section {\n            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);\n            color: white;\n            padding: 100px 0;\n            text-align: center;\n        }\n        \n        .cta-section h2 {\n            font-size: 3rem;\n            margin-bottom: 30px;\n            font-weight: 700;\n        }\n        \n        .cta-section p {\n            font-size: 1.25rem;\n            margin-bottom: 40px;\n            max-width: 700px;\n            margin-left: auto;\n            margin-right: auto;\n        }\n        \n        .cta-button {\n            display: inline-block;\n            background-color: #023590;\n            color: white;\n            padding: 16px 48px;\n            border-radius: 8px;\n            font-size: 1.125rem;\n            font-weight: 600;\n            transition: background-color 0.3s;\n        }\n        \n        .cta-button:hover {\n            background-color: #022a6e;\n        }\n        \n        /* === ARTICLES SECTION === */\n        .articles-section {\n            background-color: #fff;\n        }\n        \n        .section-header {\n            text-align: center;\n            margin-bottom: 60px;\n        }\n        \n        .section-header h2 {\n            font-size: 2.5rem;\n            font-weight: 700;\n            margin-bottom: 20px;\n        }\n        \n        .section-header p {\n            font-size: 1.125rem;\n            color: #666;\n            max-width: 700px;\n            margin: 0 auto;\n        }\n        \n        .articles-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));\n            gap: 40px;\n        }\n        \n        .article-card {\n            display: flex;\n            flex-direction: column;\n            border-radius: 12px;\n            overflow: hidden;\n            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);\n            transition: transform 0.3s, box-shadow 0.3s;\n        }\n        \n        .article-card:hover {\n            transform: translateY(-8px);\n            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);\n        }\n        \n        .article-image {\n            width: 100%;\n            aspect-ratio: 16/9;\n            overflow: hidden;\n        }\n        \n        .article-image img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            transition: transform 0.5s;\n        }\n        \n        .article-card:hover .article-image img {\n            transform: scale(1.05);\n        }\n        \n        .article-content {\n            padding: 30px;\n        }\n        \n        .article-content h3 {\n            font-size: 1.5rem;\n            margin-bottom: 15px;\n            font-weight: 600;\n        }\n        \n        .article-content p {\n            color: #666;\n            line-height: 1.7;\n            margin-bottom: 20px;\n        }\n        \n        .read-more {\n            color: #023590;\n            font-weight: 600;\n            display: inline-flex;\n            align-items: center;\n            gap: 8px;\n        }\n        \n        .read-more:hover {\n            text-decoration: underline;\n        }\n        \n        /* === SOCIAL FEED === */\n        .social-feed {\n            background-color: #f9f9f9;\n        }\n        \n        .social-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n            gap: 16px;\n        }\n        \n        .social-item {\n            position: relative;\n            overflow: hidden;\n            border-radius: 8px;\n            aspect-ratio: 1/1;\n        }\n        \n        .social-item img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            transition: transform 0.5s;\n        }\n        \n        .social-item:hover img {\n            transform: scale(1.1);\n        }\n        \n        .instagram-icon {\n            position: absolute;\n            bottom: 8px;\n            right: 8px;\n            width: 32px;\n            height: 32px;\n            color: rgba(255, 255, 255, 0.7);\n        }\n        \n        /* === RESPONSIVE === */\n        @media (min-width: 1024px) {\n            .features-grid {\n                grid-template-columns: 1fr 2fr;\n            }\n            \n            .product-grid {\n                grid-template-columns: repeat(2, 1fr);\n                gap: 80px;\n            }\n            \n            .product-grid.reverse {\n                direction: rtl;\n            }\n            \n            .product-grid.reverse > * {\n                direction: ltr;\n            }\n        }\n        \n        @media (max-width: 768px) {\n            .hero-banner h1 {\n                font-size: 2.5rem;\n            }\n            \n            .hero-subtitle {\n                font-size: 1.125rem;\n            }\n            \n            .features-header h2,\n            .product-content h2,\n            .section-header h2 {\n                font-size: 2rem;\n            }\n            \n            .cta-section h2 {\n                font-size: 2rem;\n            }\n            \n            .articles-grid {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n</head>\n<body>\n    <!-- Hero Banner -->\n    <section class=\"hero-banner\">\n        <video autoplay muted loop playsinline poster=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dw-hero-poster.jpg\">\n            <source src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dw-hero-run.mp4\" type=\"video/mp4\">\n        </video>\n        <div class=\"hero-overlay\"></div>\n        <div class=\"hero-content\">\n            <h1>\n                {{HeroHeadline}}\n                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                    <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                </svg>\n            </h1>\n            <p class=\"hero-subtitle\">{{HeroSubtext}}</p>\n            <a href=\"https://www.brooksrunning.com/\" class=\"hero-cta\">\n                <span>Shop Running Shoes</span>\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"13\" viewBox=\"0 0 48 13\" fill=\"none\" class=\"arrow-icon\" aria-hidden=\"true\">\n                    <path d=\"M0.858154 6.40024H46.0632M46.0632 6.40024C46.0632 6.40024 40.653 3.44867 39.5537 1.00024M46.0632 6.40024C46.0632 6.40024 41.2804 9.17362 39.5537 11.8002\" stroke=\"#023590\" stroke-linecap=\"square\"/>\n                </svg>\n            </a>\n        </div>\n    </section>\n\n    <!-- Features Section -->\n    <section class=\"features-section\">\n        <div class=\"container\">\n            <div class=\"features-grid\">\n                <div class=\"features-header\">\n                    <h2>\n                        Run Happy. Built for Every Run.\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                            <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                        </svg>\n                    </h2>\n                </div>\n                <div class=\"features-items\">\n                    <div class=\"feature-item\">\n                        <h3>{{Pillar1Title}}</h3>\n                        <p>{{Pillar1Paragraph}}</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">Learn More</a>\n                    </div>\n                    <div class=\"feature-item\">\n                        <h3>{{Pillar2Title}}</h3>\n                        <p>{{Pillar2Paragraph}}</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">See Why</a>\n                    </div>\n                    <div class=\"feature-item\">\n                        <h3>{{Pillar3Title}}</h3>\n                        <p>{{Pillar3Paragraph}}</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">Understand How</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- Feature 1 -->\n    <section class=\"product-section alt-bg\">\n        <div class=\"container\">\n            <div class=\"product-grid\">\n                <div class=\"product-image\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dwbbbbbbbb/images/{{Feature1Title}}.jpg\" alt=\"{{Feature1Title}}\" loading=\"lazy\">\n                </div>\n                <div class=\"product-content\">\n                    <div class=\"eyebrow\">{{Feature1Tagline}}</div>\n                    <h2>{{Feature1Title}}</h2>\n                    <p>{{Feature1Paragraph}}</p>\n                    <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">Explore</a>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- Feature 2 -->\n    <section class=\"product-section\">\n        <div class=\"container\">\n            <div class=\"product-grid reverse\">\n                <div class=\"product-content\">\n                    <div class=\"eyebrow\">{{Feature2Tagline}}</div>\n                    <h2>\n                        {{Feature2Title}}\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                            <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                        </svg>\n                    </h2>\n                    <p>{{Feature2Paragraph}}</p>\n                    <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">Discover</a>\n                </div>\n                <div class=\"product-image\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dwbbbbbbbb/images/{{Feature2Title}}.jpg\" alt=\"{{Feature2Title}}\" loading=\"lazy\">\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- Feature 3 -->\n    <section class=\"product-section alt-bg\">\n        <div class=\"container\">\n            <div class=\"product-grid\">\n                <div class=\"product-image\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dwbbbbbbbb/images/{{Feature3Title}}.jpg\" alt=\"{{Feature3Title}}\" loading=\"lazy\">\n                </div>\n                <div class=\"product-content\">\n                    <div class=\"eyebrow\">{{Feature3Tagline}}</div>\n                    <h2>\n                        {{Feature3Title}}\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                            <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                        </svg>\n                    </h2>\n                    <p>{{Feature3Paragraph}}</p>\n                    <a href=\"https://www.brooksrunning.com/\" class=\"arrow-btn\">View</a>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- CTA Section -->\n    <section class=\"cta-section\">\n        <div class=\"container\">\n            <h2>Ready to Run?</h2>\n            <p>Find your perfect fit. Shop running shoes, join the Run Club, and run happy with Brooks.</p>\n            <a href=\"https://www.brooksrunning.com/\" class=\"cta-button\">Shop Running Shoes</a>\n        </div>\n    </section>\n\n    <!-- Articles Section -->\n    <section class=\"articles-section\">\n        <div class=\"container\">\n            <div class=\"section-header\">\n                <h2>\n                    Run Stories & Inspiration\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                        <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                    </svg>\n                </h2>\n                <p>Training tips, runner stories, and the latest from the Brooks community.</p>\n            </div>\n            <div class=\"articles-grid\">\n                <article class=\"article-card\">\n                    <div class=\"article-image\">\n                        <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dw-run-stories-1.jpg\" alt=\"Run story\" loading=\"lazy\">\n                    </div>\n                    <div class=\"article-content\">\n                        <h3>Training for Your First 10K</h3>\n                        <p>Build confidence and endurance with a plan that fits your schedule and goals...</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"read-more\">\n                            Read Article\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"8\" viewBox=\"0 0 48 13\" fill=\"none\" aria-hidden=\"true\">\n                                <path d=\"M0.858154 6.40024H46.0632M46.0632 6.40024C46.0632 6.40024 40.653 3.44867 39.5537 1.00024M46.0632 6.40024C46.0632 6.40024 41.2804 9.17362 39.5537 11.8002\" stroke=\"#023590\" stroke-linecap=\"square\"/>\n                            </svg>\n                        </a>\n                    </div>\n                </article>\n                \n                <article class=\"article-card\">\n                    <div class=\"article-image\">\n                        <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dw-run-stories-2.jpg\" alt=\"Run story\" loading=\"lazy\">\n                    </div>\n                    <div class=\"article-content\">\n                        <h3>Find Your Shoe: The Guide</h3>\n                        <p>Not sure which Brooks shoe is right for you? Our finder matches you to your perfect run...</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"read-more\">\n                            Read Article\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"8\" viewBox=\"0 0 48 13\" fill=\"none\" aria-hidden=\"true\">\n                                <path d=\"M0.858154 6.40024H46.0632M46.0632 6.40024C46.0632 6.40024 40.653 3.44867 39.5537 1.00024M46.0632 6.40024C46.0632 6.40024 41.2804 9.17362 39.5537 11.8002\" stroke=\"#023590\" stroke-linecap=\"square\"/>\n                            </svg>\n                        </a>\n                    </div>\n                </article>\n                \n                <article class=\"article-card\">\n                    <div class=\"article-image\">\n                        <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/dw-run-stories-3.jpg\" alt=\"Run story\" loading=\"lazy\">\n                    </div>\n                    <div class=\"article-content\">\n                        <h3>Marathon Mindset: Run Happy</h3>\n                        <p>How the Brooks community trains, races, and runs happy — from 5K to marathon...</p>\n                        <a href=\"https://www.brooksrunning.com/\" class=\"read-more\">\n                            Read Article\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"8\" viewBox=\"0 0 48 13\" fill=\"none\" aria-hidden=\"true\">\n                                <path d=\"M0.858154 6.40024H46.0632M46.0632 6.40024C46.0632 6.40024 40.653 3.44867 39.5537 1.00024M46.0632 6.40024C46.0632 6.40024 41.2804 9.17362 39.5537 11.8002\" stroke=\"#023590\" stroke-linecap=\"square\"/>\n                            </svg>\n                        </a>\n                    </div>\n                </article>\n            </div>\n        </div>\n    </section>\n\n    <!-- Social Feed -->\n    <section class=\"social-feed\">\n        <div class=\"container\">\n            <div class=\"section-header\">\n                <h2>\n                    Join the Run Club\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 441 25\" fill=\"none\" class=\"accent-underline\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                        <path d=\"M3 22C93.4059 7.66215 306.974 -12.4108 438 22\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n                    </svg>\n                </h2>\n                <p>Run with us. Follow @BrooksRunning and join the community.</p>\n            </div>\n            <div class=\"social-grid\">\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-1.jpg\" alt=\"Social feed image 1\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-2.jpg\" alt=\"Social feed image 2\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-3.jpg\" alt=\"Social feed image 3\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-4.jpg\" alt=\"Social feed image 4\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-5.jpg\" alt=\"Social feed image 5\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n                <div class=\"social-item\">\n                    <img src=\"https://www.brooksrunning.com/dw/image/v2/AAKK_PRD/on/demandware.static/-/Sites-brooks-running-Library/default/social-6.jpg\" alt=\"Social feed image 6\" loading=\"lazy\">\n                    <svg class=\"instagram-icon\" viewBox=\"0 0 448 512\" aria-hidden=\"true\">\n                        <path fill=\"currentColor\" d=\"M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"/>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </section>\n</body>\n</html>"
+    }
+  ],
+  "actions": [
+    {
+      "id": "initialize_flow",
+      "kind": "InitializeFlow",
+      "displayName": "Initialize",
+      "showToUser": false
+    },
+    {
+      "id": "retrieve_context_params",
+      "kind": "RetrieveContextParameterDocs",
+      "config": {
+        "outputVarName": "contextParameterDocuments",
+        "workflowTypeFilter": "account-enrichment",
+        "filterByCurrentFlow": true
+      },
+      "showToUser": false,
+      "displayName": "Retrieve Context Parameters"
+    },
+    {
+      "id": "extract_params",
+      "kind": "ExtractContextParams",
+      "config": {
+        "inputVarName": "__messages__",
+        "outputVarName": "contextParams"
+      },
+      "showToUser": false,
+      "displayName": "Extract Parameters"
+    },
+    {
+      "id": "review_params",
+      "kind": "ReviewContextParams",
+      "config": {
+        "inputVarName": "vars.contextParams",
+        "outputVarName": "reviewedContextParams"
+      },
+      "showToUser": true,
+      "displayName": "Review Parameters"
+    },
+    {
+      "id": "normalize_params",
+      "kind": "NormalizeParams",
+      "config": {
+        "inputVarName": "vars.reviewedContextParams",
+        "outputVarName": "normalizedParams"
+      },
+      "showToUser": false,
+      "displayName": "Normalize Parameters"
+    },
+    {
+      "id": "expand_variants",
+      "kind": "ExpandVariants",
+      "config": {
+        "inputVarName": "vars.normalizedParams",
+        "outputVarName": "variants",
+        "contextParamsVarName": "contextParameterDocuments"
+      },
+      "showToUser": false,
+      "displayName": "Expand Variants"
+    },
+    {
+      "id": "content_generation_loop",
+      "kind": "Foreach",
+      "index": "variantIndex",
+      "items": "=variants",
+      "value": "currentVariant",
+      "actions": [
+        {
+          "id": "extract_variant_structure",
+          "kind": "ExtractVariantStructure",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "structureKey": "channels",
+            "outputSchemaVarName": "structuredSchema",
+            "outputHtmlTemplateVarName": "htmlTemplate"
+          },
+          "showToUser": false,
+          "displayName": "Extract Structure"
+        },
+        {
+          "id": "compose_variant_message",
+          "kind": "ComposeMessageForVariant",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "systemPrompt": "Generate content for Brooks Running (brooksrunning.com). Use the user request and the provided variant parameters (channel and persona). Tailor the home page copy to the persona and their traffic source (e.g. Instagram, marketing email, Run Club/Strava). Output valid JSON that matches the required schema.",
+            "outputVarName": "variantMessage",
+            "messageTemplate": "Generate Brooks home page content for: {variantDescription}",
+            "includeOptionDetails": true
+          },
+          "showToUser": false,
+          "displayName": "Compose Message"
+        },
+        {
+          "id": "generate_content",
+          "kind": "GenerateContent",
+          "config": {
+            "model": "workflow-fast-model",
+            "loopVarName": "loop_content_generation_loop",
+            "temperature": 0.7,
+            "artifactKind": "content_item",
+            "inputVarName": "vars.variantMessage",
+            "outputVarName": "generatedContent",
+            "htmlTemplateVar": "vars.htmlTemplate",
+            "structuredSchemaVar": "vars.structuredSchema"
+          },
+          "showToUser": true,
+          "displayName": "Generate Content"
+        },
+        {
+          "id": "save_document",
+          "kind": "SaveDocument",
+          "config": {
+            "kind": "content_item",
+            "titlePrefix": "Generated Content",
+            "contentVarName": "vars.generatedContent",
+            "documentIdVarName": "vars.documentId",
+            "titleSuffixVarName": "vars.variantDescription"
+          },
+          "showToUser": false,
+          "displayName": "Save Document"
+        }
+      ],
+      "showToUser": false,
+      "displayName": "Generate Content for Each Variant"
+    },
+    {
+      "id": "workflow_end",
+      "kind": "WorkflowEnd",
+      "displayName": "Complete",
+      "showToUser": false
+    }
+  ],
+  "version": 2,
+  "is_active": true
+}
