@@ -1,41 +1,52 @@
 ﻿---
-ID: "80dca756-1153-44b2-bbae-aa8981ad6bcc"
-Parent: "ea0d13b1-0e92-4e4a-a2c6-dbc76a790be9"
-Template: "1c82e550-ebcd-4e5d-8abd-d50d0809541e"
-Path: "/sitecore/content/industry-verticals/forma-lux/Home/Landing Pages/The Lumina Collection/Data"
+ID: "859a2561-b145-4359-9b15-440ccad0366b"
+Parent: "fb9ccf81-04c2-4073-a5c5-ede3a0bdc198"
+Template: "ad148487-7aae-4095-b602-7f9aeeb3f8b6"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Features/Article Features_var3"
+BranchID: "82ac1f90-61f1-4812-9553-e1a4c81405fe"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0653DE3B-003D-48F9-BC62-6FB3BC96D303}"
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251128T095504Z
+      Value: 20250915T102914Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\movin.tilakaratne@sitecore.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a5cb1eeb-3f2f-4c2b-988f-f42ed64d2a64"
+      Value: "aeb75491-e08b-4861-9a6b-62573980ae78"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251128T095504Z
+      Value: 20260227T202304Z
 - Language: "es-ES"
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251219T104234Z
+      Value: 20251219T104215Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -46,21 +57,24 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c173d7ca-7da6-4d8a-a643-43537a728bed"
+      Value: "152ddf97-ddb2-414c-95a5-78f28bb543aa"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251219T104234Z
+      Value: 20260227T202304Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251217T110038Z
+      Value: 20251217T110015Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -71,21 +85,24 @@ Languages:
         sitecore\isuru.bandara@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b8d9ea49-95ac-43fb-8e6f-8a8d9407a961"
+      Value: "312a5036-e5d4-4780-804f-664cc81fbd8c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251217T110038Z
+      Value: 20260227T202305Z
 - Language: "fr-FR"
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251217T103934Z
+      Value: 20251217T103913Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -96,11 +113,11 @@ Languages:
         sitecore\isuru.bandara@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b38fae6-d5b5-495d-9936-3a9827799e95"
+      Value: "aab76e03-c85d-4c3d-a80f-76b35f6fd9d0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251217T103934Z
+      Value: 20260227T202304Z

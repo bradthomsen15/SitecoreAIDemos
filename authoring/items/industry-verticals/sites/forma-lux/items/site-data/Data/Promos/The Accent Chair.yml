@@ -7,10 +7,10 @@ SharedFields:
 - ID: "b441a09f-ddb2-41a8-84cc-2533686541f4"
   Hint: PromoImageOne
   Value: |
-    <Image src="https://starter-verticals-2.sitecoresandbox.cloud/api/public/content/a40cc117f6bc43b584576379e57d5352?v=0831c28d" dam-id="_6HhKmO1SFWVcvVHiNnphg" width="1024" height="1024" alt="TheLuminaChair.png" dam-content-type="Image" thumbnailsrc="https://starter-verticals-2.sitecoresandbox.cloud/api/gateway/68204/thumbnail" />
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/169928ded34e4569a48f9b585d4d6c41?v=787e668d" dam-id="r3HL4-GnSd-duXlcvSW6Eg" width="1950" height="1080" alt="media_1f4c8f025089301e52a032de5f4cebe7b66222b77.webp" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83103/thumbnail" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "7b5f5150-a75b-40e5-9017-f1cd72956654"
+  Value: "272f799f-7116-43dc-9339-852cf893e168"
 Languages:
 - Language: en
   Versions:
@@ -43,14 +43,14 @@ Languages:
       Value: Harmony and Comfort
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a8bf9d88-efe1-471b-88e1-aa0fdf9ef443"
+      Value: "4f8c13c7-15bd-4acb-847f-91f5d700021b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260203T082515Z
+      Value: 20260304T184328Z
     - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
       Hint: PromoTitle
       Value: Lumina Chair Majesty

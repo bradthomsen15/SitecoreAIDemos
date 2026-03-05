@@ -31,7 +31,7 @@ Languages:
       Value: 20250904T103649Z
     - ID: "35b07fa2-ce95-4459-8dd6-074203dda9a7"
       Hint: FeatureDescription
-      Value: Order over 150 $
+      Value: Order over 100 $
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -45,14 +45,14 @@ Languages:
       Value: Free Shipping
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "42fa7e1a-f328-4078-be85-05b12df558d1"
+      Value: "1eb7ed09-9f15-4c04-b5ee-30a303780a6d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\sanduni.galagoda@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251002T100011Z
+      Value: 20260304T175233Z
 - Language: "es-ES"
   Versions:
   - Version: 1

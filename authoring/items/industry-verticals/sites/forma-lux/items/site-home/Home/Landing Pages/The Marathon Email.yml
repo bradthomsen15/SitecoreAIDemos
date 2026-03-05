@@ -2,7 +2,7 @@
 ID: "ea0d13b1-0e92-4e4a-a2c6-dbc76a790be9"
 Parent: "af977a9b-c5e9-4195-aa90-00c05f900365"
 Template: "98e60957-0783-4a9a-85cc-77dad30e9711"
-Path: "/sitecore/content/industry-verticals/forma-lux/Home/Landing Pages/The Lumina Collection"
+Path: "/sitecore/content/industry-verticals/forma-lux/Home/Landing Pages/The Marathon Email"
 SharedFields:
 - ID: "25f9b35b-0c2c-4f43-ae2f-1d30eb1f2b6b"
   Hint: ogImage
@@ -71,12 +71,58 @@ SharedFields:
     </r>
 Languages:
 - Language: en
+  Fields:
+  - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
+    Hint: __Unversioned revision
+    Value: "9577a219-7650-4d60-a854-e32715258b14"
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: The Marathon Email
   Versions:
   - Version: 1
     Fields:
     - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
       Hint: __Lock
       Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6A1FDFC6-0D1A-4B40-B539-28B490197D50}"
+              s:ds="a8ba8646-5715-47cb-bff4-e0442e23ef4b"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D%7C%7B5B9ABBBD-BAF5-498D-A866-3E4647FE949D%7D&amp;FieldNames=%7B945FA565-3B86-4FF1-BA7E-E5AB71318906%7D&amp;Styles=%7C%7B3193A7EB-6465-49CA-A53B-7579C294924A%7D%7C%7BEB728F9E-C2AC-4572-8AE4-A948B68B7EC8%7D%7C%7B8CD18CE9-CDDC-4FD0-988D-DC9E41EF026F%7D%7C%7B8F923E25-1E81-4AE7-AC50-6C0D195B328B%7D%7C%7BB8F669C4-5BCA-4194-86E5-E81B26A07E57%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=5" />
+            <r
+              uid="{0F955323-3206-42B1-B03A-370EB9E8AA69}">
+              <p:d />
+            </r>
+            <r
+              uid="{2CF558E0-62F3-4162-ACF3-A90E43DFCE5C}"
+              s:ds="82faa6b5-8990-4db1-855c-f7505148aec0" />
+            <r
+              uid="{920E6B17-B28F-420C-8A26-C13C7CC994D6}"
+              p:after="r[@uid='{2CF558E0-62F3-4162-ACF3-A90E43DFCE5C}']"
+              s:ds="d2a7eac1-c7a1-43ad-987f-5a1dc935504d"
+              s:id="{CCD11802-22A3-462F-92FC-821515E2AEC8}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D%7C%7B124FC038-B786-4C9B-B7C0-0619BCA06080%7D&amp;FieldNames=%7B4091EF1F-FB38-4E84-8776-076441E040BF%7D&amp;Styles=%7C%7BD7433F05-153F-4F22-AD40-86D7EE8D0EA5%7D%7C%7B1D7E4033-FFD2-40D3-99EB-E0BE364BB74F%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=6"
+              s:ph="headless-main" />
+            <r
+              uid="{1155E284-DB4F-4EAB-A3DA-3A581A8F7E4E}"
+              s:ds="d5d5c6dd-51c2-4f54-9d06-a4f76a66ff1c"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B4091EF1F-FB38-4E84-8776-076441E040BF%7D&amp;Styles=%7C%7B6D4F66C4-8BA6-4733-8019-B4914C5643FF%7D%7C%7BEDD2EAB8-1CFC-4EA7-BCCE-A91E0747742A%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=2" />
+            <r
+              uid="{AFCC8E5E-9852-4443-B07E-ADB1C9A65C32}">
+              <p:d />
+            </r>
+            <r
+              uid="{D0CE2523-1E70-4EAD-B7B4-BED33A16F8AE}">
+              <p:d />
+            </r>
+          </d>
+        </r>
     - ID: "13fe722e-a8c7-4432-a983-23fb28ffab05"
       Hint: metadataKeywords
       Value: Forma Lux, Lumina Collection, modular sofa, accent chair, nesting tables, luxury furniture, sustainable furniture, modern design, timeless interiors, handcrafted oak furniture, living room design ideas
@@ -107,11 +153,11 @@ Languages:
         If you’re exploring what furniture would complement your space, The Lumina Collection offers warm natural materials, modern silhouettes, and modular versatility that adapt beautifully to any interior.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "905bd90c-1dce-4c57-a525-f5c4819dd237"
+      Value: "ecdb18c5-f1c9-4964-ad0b-c68e4ab2d4fa"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d3886445-9ee0-46a0-ae5e-8857dd6b395f"
       Hint: pageSummary
       Value: |
@@ -122,7 +168,7 @@ Languages:
         “You might love The Lumina Collection from Forma Lux — a line of sustainable, handcrafted furniture designed to complement natural light and modern interiors. Its clean lines, soft textures, and oak details make it a perfect fit for both minimalist and warm, lived-in spaces.”
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260203T082508Z
+      Value: 20260305T173712Z
 - Language: "es-ES"
   Versions:
   - Version: 1

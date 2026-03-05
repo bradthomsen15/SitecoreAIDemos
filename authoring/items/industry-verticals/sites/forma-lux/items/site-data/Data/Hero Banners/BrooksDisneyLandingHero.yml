@@ -1,0 +1,178 @@
+﻿---
+ID: "6770e505-ebad-4851-a3f1-386533fb30fe"
+Parent: "e79d8586-d4b5-42f5-aec1-ae82c4f47f0f"
+Template: "ac18eef2-f134-4985-8b74-6ad16cca6577"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Hero Banners/BrooksDisneyLandingHero"
+SharedFields:
+- ID: "00b71f70-411d-4ea1-a423-74ed20b60157"
+  Hint: Image
+  Value: |
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/83677-HomePageHero-2000x800?v=fc5b3b36" dam-id="DNlD9WP2Reaxh0mg3v61gw" width="2000" height="800" alt="mickybanner.png" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83677/thumbnail" />
+- ID: "d74790ee-7289-4a66-b921-71da75df6cde"
+  Hint: Video
+  Value: |
+    <file src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/83677-HomePageHero-2000x800?v=fc5b3b36" title="mickybanner.png" />
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "82580215-57ce-4185-9419-a49096452d62"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "1dec177a-1a9b-41cf-a60c-d89f28fa41e8"
+      Hint: Description
+      Value: |
+        <div class="ck-content"><p><span style="color:hsl(0,0%,100%);"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-family:&quot;Filson Pro W01&quot;, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">Become a Brooks Run Club member for free to be among the first to get access to the limited-edition Brooks x </span></span><span style="color:hsl(0, 0%, 0%);"><em style="-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:border-box;color:rgb(14, 19, 31);font-family:&quot;Filson Pro W01&quot;, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:16px;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><i><em>run</em></i></em></span><span style="color:hsl(0,0%,100%);"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-family:&quot;Filson Pro W01&quot;, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">Disney® Collection. Plus, enjoy other great perks. All you need to do is sign up.</span></span></p></div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250909T080217Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "84a164f4-8b3e-45e1-a4ca-fa4c0de72666"
+      Hint: SecondaryCtaLink
+      Value: |
+        <link linktype="external" url="https://www.brooksrunning.com/en_us/womens/" target="_blank" text="Log in" title="" class=""/>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1d80fba8-a3b3-4a86-8ba2-90ef07edde73"
+    - ID: "985b877b-bfee-473e-aada-0a9f156dfecc"
+      Hint: Title
+      Value: Join & shop Brooks x runDisney®
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260304T173119Z
+    - ID: "e3c72e5d-cbf1-4af8-8a73-dc4d3c8590f3"
+      Hint: CtaLink
+      Value: |
+        <link linktype="external" url="https://www.brooksrunning.com/en_us/mens/" target="" text="Sign Up" title="" class=""/>
+- Language: "es-ES"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1dec177a-1a9b-41cf-a60c-d89f28fa41e8"
+      Hint: Description
+      Value: |
+        <div class="ck-content"><p>Una colección curada de piezas modernas que combinan elegancia y funcionalidad.</p></div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250909T080217Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d3fe5efc-9e4f-4781-8af5-806f8ca6e489"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "985b877b-bfee-473e-aada-0a9f156dfecc"
+      Hint: Title
+      Value: Descubre el diseño
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260226T231638Z
+    - ID: "e3c72e5d-cbf1-4af8-8a73-dc4d3c8590f3"
+      Hint: CtaLink
+      Value: |
+        <link class="" id="4e869961-efef-4b47-bb69-170a251d689b" querystring="" anchor="" target="" title="" linktype="internal" text="Descubre las novedades" url="/industry-verticals/forma-lux/Home" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1dec177a-1a9b-41cf-a60c-d89f28fa41e8"
+      Hint: Description
+      Value: |
+        <div class="ck-content"><p>Une collection soignée de pièces modernes qui allient élégance et fonctionnalité.</p></div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250909T080217Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "461ecea2-d041-46a1-8575-76f34d048900"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "985b877b-bfee-473e-aada-0a9f156dfecc"
+      Hint: Title
+      Value: Découvrez le design
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260226T231638Z
+    - ID: "e3c72e5d-cbf1-4af8-8a73-dc4d3c8590f3"
+      Hint: CtaLink
+      Value: |
+        <link class="" id="4e869961-efef-4b47-bb69-170a251d689b" querystring="" anchor="" target="" title="" linktype="internal" text="Découvrez les nouveautés" url="/industry-verticals/forma-lux/Home" />
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1dec177a-1a9b-41cf-a60c-d89f28fa41e8"
+      Hint: Description
+      Value: |
+        <div class="ck-content"><p>Une collection soignée de pièces modernes qui allient élégance et fonctionnalité.</p></div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250909T080217Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5788d343-70b2-4c88-bb44-728871031e2d"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "985b877b-bfee-473e-aada-0a9f156dfecc"
+      Hint: Title
+      Value: Découvrez le design
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260226T231638Z
+    - ID: "e3c72e5d-cbf1-4af8-8a73-dc4d3c8590f3"
+      Hint: CtaLink
+      Value: |
+        <link class="" id="4e869961-efef-4b47-bb69-170a251d689b" querystring="" anchor="" target="" title="" linktype="internal" text="Découvrez les nouveautés" url="/industry-verticals/forma-lux/Home" />

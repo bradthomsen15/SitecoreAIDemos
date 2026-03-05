@@ -1,0 +1,82 @@
+﻿---
+ID: "51fefea3-eeed-4b03-b840-f82a8ca6966a"
+Parent: "af977a9b-c5e9-4195-aa90-00c05f900365"
+Template: "98e60957-0783-4a9a-85cc-77dad30e9711"
+Path: "/sitecore/content/industry-verticals/forma-lux/Home/Landing Pages/BrooksXDisney"
+SharedFields:
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{D9E407C0-E9EF-4015-B4DA-AB7043974D91}" />
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{59074EE8-0C94-4F37-8CD4-1E2E01899FDB}"
+              p:before="*"
+              s:ds="be5a7736-6469-4608-ba11-4ecd0a4ca18a"
+              s:id="{5F6BF7C9-C80C-4BBD-AD78-8DA749B35206}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;FieldNames&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles&amp;Styles8&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="headless-main" />
+            <r
+              uid="{F406A6D7-B667-4328-AF05-C9AA713CDE1C}"
+              p:after="r[@uid='{59074EE8-0C94-4F37-8CD4-1E2E01899FDB}']"
+              s:ds="2ff41854-a1eb-489d-bd22-55d6b19f46ef"
+              s:id="{C7FDF764-5C05-4544-BB1F-A0E11F37E222}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B8E8F5FB7-4500-439D-AB57-76D982DB3D0E%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=4"
+              s:ph="headless-main" />
+            <r
+              uid="{6B1FAF06-8152-489E-A009-BD428A4DA068}"
+              p:after="r[@uid='{F406A6D7-B667-4328-AF05-C9AA713CDE1C}']"
+              s:ds="6770e505-ebad-4851-a3f1-386533fb30fe"
+              s:id="{B49CF2D7-7CB2-4918-8F38-2607D956D995}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B96409BF2-9023-4CE1-8EF3-AA01ED5D1F3A%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=2"
+              s:ph="/headless-main/row-1-1" />
+            <r
+              uid="{4EB7F441-62A4-47CB-A016-B64BEB83E261}"
+              p:after="*[1=2]"
+              s:ds="61ca2682-abb4-4089-8f14-7301b297e8d7"
+              s:id="{CCD11802-22A3-462F-92FC-821515E2AEC8}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B4091EF1F-FB38-4E84-8776-076441E040BF%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=3"
+              s:ph="/headless-main/row-2-1" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260224T213906Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: BrooksXDisney
+    - ID: "4ff91248-33ab-4254-b6f7-2618fd0aebae"
+      Hint: Title
+      Value: BrooksXDisney
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a93711bb-e3eb-4ee7-a707-2455a8a682e9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260304T173639Z

@@ -7,13 +7,13 @@ SharedFields:
 - ID: "83bc80ee-e97a-474b-8c05-a2559394eebe"
   Hint: FeatureImage
   Value: |
-    <image mediaid="8978ae74-b0b4-4204-8454-b2ae0c48a4cc" />
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/fecc9380b28d4eb0964210e75cf018b2?v=7d163e01" dam-id="5bMbAM7zTOeMIBYldVpXBA" width="2900" height="2900" alt="120465-198-l-glycerin-23-womens-dynamic-cushion-road-running-shoe.png" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83024/thumbnail" />
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 75
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "1672ae24-9276-4477-b16e-98ec2ab829a4"
+  Value: "6216d528-ab0c-49c6-852d-7523e9542924"
 Languages:
 - Language: en
   Versions:
@@ -28,7 +28,8 @@ Languages:
     - ID: "35b07fa2-ce95-4459-8dd6-074203dda9a7"
       Hint: FeatureDescription
       Value: |
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum has been the industry's standard dummy
+        Women's road-running shoes
+        $170.00
         
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
@@ -40,17 +41,17 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "5f507c84-84f9-4033-81a2-90bca3d12606"
       Hint: FeatureTitle
-      Value: Earthy Materials & Inviting Textures
+      Value: GLYCERIN 23
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "268376bf-94c4-4ba6-95b5-9de7ad825a1d"
+      Value: "74b8f427-e92b-4fcb-bf1e-033fac8b0ee3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250915T135753Z
+      Value: 20260227T183455Z
 - Language: "es-ES"
   Versions:
   - Version: 1
@@ -168,3 +169,44 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20251217T104125Z
+  - Version: 2
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250915T104837Z
+    - ID: "35b07fa2-ce95-4459-8dd6-074203dda9a7"
+      Hint: FeatureDescription
+      Value: |
+        Chaussures de course sur route pour femmes
+        170,00 €
+        
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "5f507c84-84f9-4033-81a2-90bca3d12606"
+      Hint: FeatureTitle
+      Value: GLYCERIN 23
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "227c2088-597f-482b-9f2b-68e33a2423ca"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260303T191404Z

@@ -1,0 +1,227 @@
+﻿---
+ID: "61ca2682-abb4-4089-8f14-7301b297e8d7"
+Parent: "d7bee783-0ed9-4fb5-9cf2-6c7fef0b2f86"
+Template: "08213afb-9cb4-4c1f-a5da-865b9a095601"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Promos/BrooksxDisneyPromo"
+SharedFields:
+- ID: "0d9bfa5d-ac4d-4dca-8477-78801227cf5c"
+  Hint: PromoImageTwo
+  Value: |
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/83308-HomepagePromoCTAs-1100x740?v=f01da336" dam-id="L1RtFQnER16kxtsXwGwFjg" width="1100" height="740" alt="runDisneyx.webp" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83308/thumbnail" />
+- ID: "3565b3f1-77de-4192-b1ca-e11c6e60c206"
+  Hint: PromoImageThree
+  Value: |
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/83308-HomepagePromoCTAs-1100x740?v=f01da336" dam-id="L1RtFQnER16kxtsXwGwFjg" width="1100" height="740" alt="runDisneyx.webp" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83308/thumbnail" />
+- ID: "b441a09f-ddb2-41a8-84cc-2533686541f4"
+  Hint: PromoImageOne
+  Value: |
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/83308-HomepagePromoCTAs-1100x740?v=f01da336" dam-id="L1RtFQnER16kxtsXwGwFjg" width="1100" height="740" alt="runDisneyx.webp" dam-content-type="Image" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/83308/thumbnail" />
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "3544a277-b2de-4d77-82aa-db03302e1696"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250904T103412Z
+    - ID: "453ed40c-5232-4e90-b023-7a3cee2bcfe8"
+      Hint: PromoMoreInfo
+      Value: |
+        <link linktype="external" url="https://sitecore-ai-demos.vercel.app/?utm_source=instagram&amp;utm_campaign=runDisney&amp;utm_id=runDisney" text="EXPERIENCE THE MAGIC"/>
+    - ID: "4fc0c7b3-bcfb-4a9d-834d-59f6836e5fd6"
+      Hint: PromoDescription
+      Value: |
+        <div class="ck-content"><p><span style="background-color:rgb(255,255,255);"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-family:&quot;Filson Pro W01&quot;, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">Transform your run with the enchantment of Disney. Discover magical shoes inspired by your favorite characters and powered by performance innovation.</span></span></p></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "79332b7d-ea7f-47d7-a9c2-bfaae4806296"
+      Hint: PromoSubTitle
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "57d492df-f64c-4200-8a31-610d9f9ea71c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260305T173834Z
+    - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
+      Hint: PromoTitle
+      Value: Where miles meet magic
+- Language: "es-ES"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250910T094944Z
+    - ID: "453ed40c-5232-4e90-b023-7a3cee2bcfe8"
+      Hint: PromoMoreInfo
+      Value: |
+        <link linktype="external" url="" target="" text="Más información" title="" class=""/>
+    - ID: "4fc0c7b3-bcfb-4a9d-834d-59f6836e5fd6"
+      Hint: PromoDescription
+      Value: |
+        <div class="ck-content"><p><meta charset="utf-8" />Porque Panto se tomó muy en serio el diseño de muebles para nuestro entorno, utilizando un capital muy caro y famoso pero a un precio relativamente bajo.</p></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\ranula.gamage@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\ranula.gamage@sitecore.com
+    - ID: "79332b7d-ea7f-47d7-a9c2-bfaae4806296"
+      Hint: PromoSubTitle
+      Value: Materiaal
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0fd569ac-51fd-44f2-87b3-f925161ac660"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20250910T100918Z
+    - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
+      Hint: PromoTitle
+      Value: Te brindamos la mejor experiencia
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250904T103412Z
+    - ID: "453ed40c-5232-4e90-b023-7a3cee2bcfe8"
+      Hint: PromoMoreInfo
+      Value: |
+        <link class="" target="" title="" linktype="external" text="Más información" url="" />
+    - ID: "4fc0c7b3-bcfb-4a9d-834d-59f6836e5fd6"
+      Hint: PromoDescription
+      Value: |
+        <div class="ck-content"><p><meta charset="utf-8" /><span style="white-space:pre-wrap;">Respaldamos cada artículo que vendemos, con materiales de primera calidad, comodidad excepcional y una garantía de satisfacción en la que puede confiar.</span></p></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "79332b7d-ea7f-47d7-a9c2-bfaae4806296"
+      Hint: PromoSubTitle
+      Value: Materiales
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "181dc50f-3455-4100-9119-5b96d797d670"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\movin.tilakaratne@sitecore.com
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251219T104352Z
+    - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
+      Hint: PromoTitle
+      Value: Nuestra promesa al mobiliario
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250904T103412Z
+    - ID: "453ed40c-5232-4e90-b023-7a3cee2bcfe8"
+      Hint: PromoMoreInfo
+      Value: |
+        <link class="" target="" title="" linktype="external" text="Plus d'infos" url="" />
+    - ID: "4fc0c7b3-bcfb-4a9d-834d-59f6836e5fd6"
+      Hint: PromoDescription
+      Value: |
+        <div class="ck-content"><p><meta charset="utf-8" /><span style="white-space:pre-wrap;">Nous garantissons chaque article que nous vendons — avec des matériaux de qualité supérieure, un confort exceptionnel et une garantie de satisfaction sur laquelle vous pouvez compter.</span></p></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "79332b7d-ea7f-47d7-a9c2-bfaae4806296"
+      Hint: PromoSubTitle
+      Value: Matériaux
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "76d51cbd-d0cf-4d76-a075-1ce02cf5e372"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251217T110158Z
+    - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
+      Hint: PromoTitle
+      Value: Notre promesse pour les meubles
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250910T095430Z
+    - ID: "453ed40c-5232-4e90-b023-7a3cee2bcfe8"
+      Hint: PromoMoreInfo
+      Value: |
+        <link linktype="external" url="http://www.google.com" target="" text="Plus d'informations" title="" class=""/>
+    - ID: "4fc0c7b3-bcfb-4a9d-834d-59f6836e5fd6"
+      Hint: PromoDescription
+      Value: |
+        <div class="ck-content"><p><meta charset="utf-8" />Parce que la pantomime était très sérieuse dans la conception de meubles pour notre environnement, en utilisant un capital très coûteux et célèbre mais à un prix relativement bas</p></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\ranula.gamage@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\ranula.gamage@sitecore.com
+    - ID: "79332b7d-ea7f-47d7-a9c2-bfaae4806296"
+      Hint: PromoSubTitle
+      Value: Matériaux
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d04c36aa-1826-4c3f-afc4-194116ffa9f5"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\isuru.bandara@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20250910T104336Z
+    - ID: "f7e3056b-5e6e-4080-b2b7-84f76b2052fc"
+      Hint: PromoTitle
+      Value: Pourquoi nous choisir

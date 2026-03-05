@@ -7,7 +7,10 @@ SharedFields:
 - ID: "2895a16e-c1b8-4e79-959a-802d5bc81a5a"
   Hint: Logo
   Value: |
-    <image mediaid="8cc2a449-e23b-488c-bb23-3d7c7a07f6e7" />
+    <Image src="https://brtb-brooksch.sitecoresandbox.cloud/api/public/content/698c38e2c4944593bd4f91f0326ff7bc?v=ea6ee86c" dam-id="9zR5gFmlRRW_tp4fsATIVg" width="2560" height="484" alt="d5f4596d-d077-4643-b135-502f88be350a.png" dam-content-type="Other" thumbnailsrc="https://brtb-brooksch.sitecoresandbox.cloud/api/gateway/82603/thumbnail" />
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "ac8da58b-bf91-4ab4-9c20-f498678fa410"
 Languages:
 - Language: en
   Versions:
@@ -41,7 +44,7 @@ Languages:
       Value: Copyright © 2025
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d0be7b71-5f16-4ea1-9422-041c955615d2"
+      Value: "e2c4399b-c047-4441-bd2d-c2b5480f5dbd"
     - ID: "9f2b5ebe-6b3a-4128-b6e9-6b7adf4e86da"
       Hint: PolicyText
       Value: |
@@ -49,7 +52,7 @@ Languages:
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\jeral.sandeeptha@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d12db112-ac8e-4701-9186-1c25d7c2c148"
       Hint: TitleTwo
       Value: Services
@@ -58,7 +61,7 @@ Languages:
       Value: Follow Us
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250828T082243Z
+      Value: 20260227T170119Z
     - ID: "e646865b-2d8d-4608-a43e-42c7f1d21675"
       Hint: TitleFive
       Value: Install App
@@ -295,3 +298,64 @@ Languages:
       Hint: TermsText
       Value: |
         <link text="Conditions générales" linktype="external" url="" anchor="" target="" />
+  - Version: 2
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20250827T102830Z
+    - ID: "40096e29-7ffe-4148-902f-2e64d17f3f2b"
+      Hint: TitleThree
+      Value: Assistance
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\jeral.sandeeptha@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\jeral.sandeeptha@sitecore.com
+    - ID: "6e545c55-70f1-49ef-b75f-e10257f0845a"
+      Hint: Description
+      Value: <span>Vivez audacieusement. Stylez profondément.</span>
+    - ID: "775b58bb-13a1-426d-86e5-765ad797e407"
+      Hint: TitleOne
+      Value: Mobilier
+    - ID: "79d2d2a7-b0d5-421c-89fb-b7d040f56d26"
+      Hint: CopyrightText
+      Value: Copyright © 2025
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bcaf492-4bbe-495a-9d0f-594575e9fd11"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "9f2b5ebe-6b3a-4128-b6e9-6b7adf4e86da"
+      Hint: PolicyText
+      Value: |
+        <link class="" target="" title="" linktype="external" text="Politique de confidentialité" url="" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\brad.thomsen@sitecore.com
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 
+    - ID: "d12db112-ac8e-4701-9186-1c25d7c2c148"
+      Hint: TitleTwo
+      Value: Services
+    - ID: "d4ce5fe0-92df-4490-8b05-e704cf6f448e"
+      Hint: TitleFour
+      Value: "Suivez-nous"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260303T191357Z
+    - ID: "e646865b-2d8d-4608-a43e-42c7f1d21675"
+      Hint: TitleFive
+      Value: Installer l'application
+    - ID: "ff56e380-2171-49bf-a693-84ee1bc9413b"
+      Hint: TermsText
+      Value: |
+        <link class="" target="" title="" linktype="external" text="Conditions générales" url="" />

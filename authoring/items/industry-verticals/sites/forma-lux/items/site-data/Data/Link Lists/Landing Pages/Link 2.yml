@@ -32,17 +32,17 @@ Languages:
     - ID: "68c2a603-f98e-42a3-be2d-dd70598c2a63"
       Hint: Link
       Value: |
-        <link linktype="internal" id="ea0d13b1-0e92-4e4a-a2c6-dbc76a790be9" anchor="" querystring="" target="" class="" text="The Lumina Collection" title=""/>
+        <link linktype="internal" id="ea0d13b1-0e92-4e4a-a2c6-dbc76a790be9" anchor="" querystring="" target="" class="" text="The Marathon Email" title=""/>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3a647ad5-abf8-40a4-b88b-81aac0abe448"
+      Value: "09f19de0-8b82-48e1-99e1-29537ba558fe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\brad.thomsen@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251201T094420Z
+      Value: 20260304T185534Z
 - Language: "es-ES"
   Versions:
   - Version: 1
